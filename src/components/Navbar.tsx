@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
-
-const navLinks = [
-  { to: "/", label: "Home" },
-  { to: "/services", label: "Services" },
-  { to: "/idea-to-product", label: "From Idea to Product" },
-  { to: "/restoration", label: "Restoration" },
-  { to: "/gallery", label: "Gallery" },
-  { to: "/about", label: "About Us" },
-  { to: "/contact", label: "Contact" },
-];
+import { useLang } from "@/context/LangContext";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const { lang, setLang, t } = useLang();
+
+  const navLinks = [
+    { to: "/", label: t("Home", "Početna") },
+    { to: "/services", label: t("Services", "Usluge") },
+    { to: "/idea-to-product", label: t("From Idea to Product", "Od ideje do realizacije") },
+    { to: "/restoration", label: t("Restoration", "Restauracije") },
+    { to: "/gallery", label: t("Gallery", "Galerija") },
+    { to: "/about", label: t("About Us", "O nama") },
+    { to: "/contact", label: t("Contact", "Kontakt") },
+  ];
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
@@ -25,7 +27,7 @@ const Navbar = () => {
           </span>
         </Link>
 
-        {/* Desktop */}
+        {/* Desktop nav */}
         <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
@@ -42,24 +44,59 @@ const Navbar = () => {
           ))}
         </div>
 
-        <div className="hidden lg:flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
+          {/* Language toggle */}
+          <div className="flex items-center border border-border rounded-sm overflow-hidden">
+            <button
+              onClick={() => setLang("en")}
+              className={`px-3 py-1.5 text-xs font-heading uppercase tracking-wider transition-colors ${
+                lang === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLang("hr")}
+              className={`px-3 py-1.5 text-xs font-heading uppercase tracking-wider transition-colors ${
+                lang === "hr" ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              HR
+            </button>
+          </div>
           <a href="tel:+38598389819" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
             <Phone className="w-4 h-4" />
             +385 98 389 819
           </a>
           <Link to="/contact" className="btn-primary-glow text-xs">
-            Get a Quote
+            {t("Get a Quote", "Zatraži ponudu")}
           </Link>
         </div>
 
         {/* Mobile toggle */}
-        <button
-          onClick={() => setOpen(!open)}
-          className="lg:hidden text-foreground p-2"
-          aria-label="Toggle menu"
-        >
-          {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center border border-border rounded-sm overflow-hidden">
+            <button
+              onClick={() => setLang("en")}
+              className={`px-2 py-1 text-xs font-heading uppercase ${
+                lang === "en" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+              }`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLang("hr")}
+              className={`px-2 py-1 text-xs font-heading uppercase ${
+                lang === "hr" ? "bg-primary text-primary-foreground" : "text-muted-foreground"
+              }`}
+            >
+              HR
+            </button>
+          </div>
+          <button onClick={() => setOpen(!open)} className="text-foreground p-2" aria-label="Toggle menu">
+            {open ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -80,12 +117,8 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              onClick={() => setOpen(false)}
-              className="btn-primary-glow text-xs text-center mt-4"
-            >
-              Get a Quote
+            <Link to="/contact" onClick={() => setOpen(false)} className="btn-primary-glow text-xs text-center mt-4">
+              {t("Get a Quote", "Zatraži ponudu")}
             </Link>
           </div>
         </div>

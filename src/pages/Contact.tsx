@@ -4,17 +4,19 @@ import { z } from "zod";
 import Layout from "@/components/Layout";
 import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
+import { useLang } from "@/context/LangContext";
 import { toast } from "sonner";
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  email: z.string().trim().email("Invalid email address").max(255),
-  message: z.string().trim().min(1, "Message is required").max(2000),
-});
-
 const Contact = () => {
+  const { t } = useLang();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+
+  const contactSchema = z.object({
+    name: z.string().trim().min(1, t("Name is required", "Ime je obavezno")).max(100),
+    email: z.string().trim().email(t("Invalid email address", "Neispravna email adresa")).max(255),
+    message: z.string().trim().min(1, t("Message is required", "Poruka je obavezna")).max(2000),
+  });
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -28,7 +30,7 @@ const Contact = () => {
       return;
     }
     setErrors({});
-    toast.success("Message sent! We'll get back to you soon.");
+    toast.success(t("Message sent! We'll get back to you soon.", "Poruka poslana! Javit ćemo vam se uskoro."));
     setForm({ name: "", email: "", message: "" });
   };
 
@@ -37,23 +39,22 @@ const Contact = () => {
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader
-            label="Get in Touch"
-            title="Contact Us"
-            description="Send us your idea — we will turn it into reality."
+            label={t("Get in Touch", "Javite nam se")}
+            title={t("Contact Us", "Kontaktirajte nas")}
+            description={t("Send us your idea — we will turn it into reality.", "Pošaljite nam svoju ideju — mi ćemo je pretvoriti u stvarnost.")}
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Form */}
             <AnimatedSection direction="left">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-heading uppercase tracking-wider mb-2">Name</label>
+                  <label className="block text-sm font-heading uppercase tracking-wider mb-2">{t("Name", "Ime")}</label>
                   <input
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
                     className="w-full bg-card border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                    placeholder="Your name"
+                    placeholder={t("Your name", "Vaše ime")}
                   />
                   {errors.name && <p className="text-primary text-xs mt-1">{errors.name}</p>}
                 </div>
@@ -64,33 +65,32 @@ const Contact = () => {
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
                     className="w-full bg-card border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                    placeholder="your@email.com"
+                    placeholder={t("your@email.com", "vaš@email.com")}
                   />
                   {errors.email && <p className="text-primary text-xs mt-1">{errors.email}</p>}
                 </div>
                 <div>
-                  <label className="block text-sm font-heading uppercase tracking-wider mb-2">Message</label>
+                  <label className="block text-sm font-heading uppercase tracking-wider mb-2">{t("Message", "Poruka")}</label>
                   <textarea
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={5}
                     className="w-full bg-card border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
-                    placeholder="Tell us about your project..."
+                    placeholder={t("Tell us about your project...", "Recite nam o svom projektu...")}
                   />
                   {errors.message && <p className="text-primary text-xs mt-1">{errors.message}</p>}
                 </div>
                 <button type="submit" className="btn-primary-glow flex items-center justify-center gap-2 w-full sm:w-auto">
                   <Send className="w-4 h-4" />
-                  Send Message
+                  {t("Send Message", "Pošalji poruku")}
                 </button>
               </form>
             </AnimatedSection>
 
-            {/* Info */}
             <AnimatedSection direction="right">
               <div className="space-y-8">
                 <div>
-                  <h3 className="font-heading text-xl uppercase font-semibold mb-4">Contact Information</h3>
+                  <h3 className="font-heading text-xl uppercase font-semibold mb-4">{t("Contact Information", "Kontakt informacije")}</h3>
                   <div className="divider-red mb-6" />
                   <div className="space-y-4">
                     <a href="mailto:info@korzo.hr" className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
@@ -112,7 +112,6 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Map placeholder */}
                 <div className="w-full h-64 bg-card border border-border rounded-sm overflow-hidden">
                   <iframe
                     title="Location Map"
