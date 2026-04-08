@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTASection from "@/components/CTASection";
+import { useLang } from "@/context/LangContext";
 import cncCutting from "@/assets/cnc-cutting.jpg";
 import laserWelding from "@/assets/laser-welding.jpg";
 import laserCleaning from "@/assets/laser-cleaning.jpg";
@@ -14,66 +15,68 @@ import workshop from "@/assets/workshop.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 import cadDesign from "@/assets/cad-design.jpg";
 
-const categories = ["All", "CNC Cutting", "Welding", "Constructions", "Restoration"] as const;
-
-const images = [
-  { src: cncCutting, category: "CNC Cutting", alt: "CNC plasma cutting" },
-  { src: laserWelding, category: "Welding", alt: "Laser welding" },
-  { src: metalConstructions, category: "Constructions", alt: "Metal gate construction" },
-  { src: restoration, category: "Restoration", alt: "Metal restoration" },
-  { src: heroBg, category: "CNC Cutting", alt: "CNC cutting workshop" },
-  { src: pressBrake, category: "Constructions", alt: "Press brake bending" },
-  { src: tubeBending, category: "Constructions", alt: "Tube bending" },
-  { src: laserCleaning, category: "Restoration", alt: "Laser cleaning" },
-  { src: workshop, category: "CNC Cutting", alt: "Workshop overview" },
-  { src: cadDesign, category: "Constructions", alt: "CAD design" },
-];
-
 const Gallery = () => {
+  const { t } = useLang();
   const [filter, setFilter] = useState<string>("All");
 
-  const filtered = filter === "All" ? images : images.filter((img) => img.category === filter);
+  const categories = [
+    t("All", "Sve"),
+    t("CNC Cutting", "CNC rezanje"),
+    t("Welding", "Zavarivanje"),
+    t("Constructions", "Konstrukcije"),
+    t("Restoration", "Restauracije"),
+  ];
+
+  const categoryKeys = ["All", "CNC Cutting", "Welding", "Constructions", "Restoration"];
+
+  const images = [
+    { src: cncCutting, categoryKey: "CNC Cutting", alt: t("CNC plasma cutting", "CNC plazma rezanje") },
+    { src: laserWelding, categoryKey: "Welding", alt: t("Laser welding", "Lasersko zavarivanje") },
+    { src: metalConstructions, categoryKey: "Constructions", alt: t("Metal gate construction", "Izrada metalnih kapija") },
+    { src: restoration, categoryKey: "Restoration", alt: t("Metal restoration", "Restauracija metala") },
+    { src: heroBg, categoryKey: "CNC Cutting", alt: t("CNC cutting workshop", "Radionica CNC rezanja") },
+    { src: pressBrake, categoryKey: "Constructions", alt: t("Press brake bending", "Savijanje na presi") },
+    { src: tubeBending, categoryKey: "Constructions", alt: t("Tube bending", "Savijanje cijevi") },
+    { src: laserCleaning, categoryKey: "Restoration", alt: t("Laser cleaning", "Lasersko čišćenje") },
+    { src: workshop, categoryKey: "CNC Cutting", alt: t("Workshop overview", "Pregled radionice") },
+    { src: cadDesign, categoryKey: "Constructions", alt: t("CAD design", "CAD dizajn") },
+  ];
+
+  const filtered = filter === "All" ? images : images.filter((img) => img.categoryKey === filter);
 
   return (
     <Layout>
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader
-            label="Our Work"
-            title="Project Gallery"
-            description="Browse through our recent projects and see the quality of our craftsmanship"
+            label={t("Our Work", "Naši radovi")}
+            title={t("Project Gallery", "Galerija projekata")}
+            description={t("Browse through our recent projects and see the quality of our craftsmanship", "Pregledajte naše nedavne projekte i uvjerite se u kvalitetu naše izrade")}
           />
 
           <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {categories.map((cat) => (
+            {categoryKeys.map((catKey, i) => (
               <button
-                key={cat}
-                onClick={() => setFilter(cat)}
+                key={catKey}
+                onClick={() => setFilter(catKey)}
                 className={`px-5 py-2 font-heading uppercase text-xs tracking-wider transition-all duration-200 ${
-                  filter === cat
+                  filter === catKey
                     ? "bg-primary text-primary-foreground"
                     : "bg-secondary text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {cat}
+                {categories[i]}
               </button>
             ))}
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {filtered.map((img, i) => (
-              <AnimatedSection key={`${img.alt}-${i}`} delay={i * 0.05}>
+              <AnimatedSection key={`${img.categoryKey}-${i}`} delay={i * 0.05}>
                 <div className="overflow-hidden rounded-sm group cursor-pointer card-industrial">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    loading="lazy"
-                    width={800}
-                    height={600}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
+                  <img src={img.src} alt={img.alt} loading="lazy" width={800} height={600} className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="p-3">
-                    <span className="text-xs font-heading uppercase tracking-wider text-primary">{img.category}</span>
+                    <span className="text-xs font-heading uppercase tracking-wider text-primary">{categories[categoryKeys.indexOf(img.categoryKey)]}</span>
                     <p className="text-sm text-muted-foreground mt-1">{img.alt}</p>
                   </div>
                 </div>

@@ -3,40 +3,58 @@ import Layout from "@/components/Layout";
 import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTASection from "@/components/CTASection";
+import { useLang } from "@/context/LangContext";
 import cadDesign from "@/assets/cad-design.jpg";
 
-const steps = [
-  {
-    icon: Lightbulb,
-    title: "1. Your Idea",
-    desc: "Share your concept, sketch, or requirements. We listen carefully and discuss possibilities, materials, and approach.",
-  },
-  {
-    icon: PenTool,
-    title: "2. Design & CAD",
-    desc: "Our team creates detailed technical drawings using AutoCAD and 3D models in SketchUp. Every dimension is calculated for precision.",
-  },
-  {
-    icon: Cog,
-    title: "3. Production",
-    desc: "Using CNC cutting, laser welding, bending, and assembly — your product takes shape with the highest quality standards.",
-  },
-  {
-    icon: CheckCircle,
-    title: "4. Final Product",
-    desc: "Quality-checked, finished, and delivered. We ensure every detail meets your expectations before handover.",
-  },
-];
-
 const IdeaToProduct = () => {
+  const { t } = useLang();
+
+  const steps = [
+    {
+      icon: Lightbulb,
+      title: t("1. Your Idea", "1. Vaša ideja"),
+      desc: t(
+        "Share your concept, sketch, or requirements. We listen carefully and discuss possibilities, materials, and approach.",
+        "Podijelite svoj koncept, skicu ili zahtjeve. Pažljivo slušamo i raspravljamo o mogućnostima, materijalima i pristupu."
+      ),
+    },
+    {
+      icon: PenTool,
+      title: t("2. Design & CAD", "2. Dizajn i CAD"),
+      desc: t(
+        "Our team creates detailed technical drawings using AutoCAD and 3D models in SketchUp. Every dimension is calculated for precision.",
+        "Naš tim izrađuje detaljne tehničke crteže u AutoCAD-u i 3D modele u SketchUp-u. Svaka dimenzija je izračunata za preciznost."
+      ),
+    },
+    {
+      icon: Cog,
+      title: t("3. Production", "3. Proizvodnja"),
+      desc: t(
+        "Using CNC cutting, laser welding, bending, and assembly — your product takes shape with the highest quality standards.",
+        "Koristeći CNC rezanje, lasersko zavarivanje, savijanje i montažu — vaš proizvod dobiva oblik s najvišim standardima kvalitete."
+      ),
+    },
+    {
+      icon: CheckCircle,
+      title: t("4. Final Product", "4. Gotov proizvod"),
+      desc: t(
+        "Quality-checked, finished, and delivered. We ensure every detail meets your expectations before handover.",
+        "Provjereno, završeno i isporučeno. Osiguravamo da svaki detalj ispunjava vaša očekivanja prije predaje."
+      ),
+    },
+  ];
+
   return (
     <Layout>
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader
-            label="Our Process"
-            title="From Idea to Product"
-            description="We provide complete service — from idea and design to final product. Your vision, our expertise."
+            label={t("Our Process", "Naš proces")}
+            title={t("From Idea to Product", "Od ideje do realizacije")}
+            description={t(
+              "We provide complete service — from idea and design to final product. Your vision, our expertise.",
+              "Pružamo kompletnu uslugu — od ideje i nacrta do gotovog proizvoda. Vaša vizija, naša stručnost."
+            )}
           />
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20">
@@ -44,13 +62,19 @@ const IdeaToProduct = () => {
               <img src={cadDesign} alt="CAD Design process" loading="lazy" width={800} height={600} className="w-full h-80 object-cover rounded-sm" />
             </AnimatedSection>
             <AnimatedSection direction="right">
-              <h3 className="text-2xl font-heading font-bold uppercase mb-4">Design & Engineering</h3>
+              <h3 className="text-2xl font-heading font-bold uppercase mb-4">{t("Design & Engineering", "Dizajn i inženjering")}</h3>
               <div className="divider-red mb-4" />
               <p className="text-muted-foreground leading-relaxed mb-3">
-                Every great product starts with a great design. We use professional CAD software (AutoCAD) and 3D modeling tools (SketchUp) to create detailed plans before production begins.
+                {t(
+                  "Every great product starts with a great design. We use professional CAD software (AutoCAD) and 3D modeling tools (SketchUp) to create detailed plans before production begins.",
+                  "Svaki sjajan proizvod počinje sjajnim dizajnom. Koristimo profesionalni CAD softver (AutoCAD) i alate za 3D modeliranje (SketchUp) za izradu detaljnih planova prije početka proizvodnje."
+                )}
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                This ensures accuracy, reduces waste, and allows you to visualize the final product before any material is cut. We work closely with clients to refine designs until they're perfect.
+                {t(
+                  "This ensures accuracy, reduces waste, and allows you to visualize the final product before any material is cut. We work closely with clients to refine designs until they're perfect.",
+                  "To osigurava točnost, smanjuje otpad i omogućuje vam vizualizaciju gotovog proizvoda prije rezanja materijala. Usko surađujemo s klijentima kako bismo usavršili dizajn."
+                )}
               </p>
             </AnimatedSection>
           </div>
@@ -68,7 +92,12 @@ const IdeaToProduct = () => {
           </div>
         </div>
       </section>
-      <CTASection title="Have an Idea?" subtitle="Let's turn your concept into a precision-engineered reality." />
+      <CTASection
+        title="Have an Idea?"
+        titleHr="Imate ideju?"
+        subtitle="Let's turn your concept into a precision-engineered reality."
+        subtitleHr="Pretvorimo vaš koncept u precizno inženjersku stvarnost."
+      />
     </Layout>
   );
 };
