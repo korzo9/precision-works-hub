@@ -14,6 +14,7 @@ const Navbar = () => {
     { to: "/idea-to-product", label: t("From Idea to Product", "Od ideje do realizacije") },
     { to: "/restoration", label: t("Restoration", "Restauracije") },
     { to: "/gallery", label: t("Gallery", "Galerija") },
+    { to: "/projects", label: t("Projects", "Projekti") },
     { to: "/about", label: t("About Us", "O nama") },
     { to: "/contact", label: t("Contact", "Kontakt") },
   ];
