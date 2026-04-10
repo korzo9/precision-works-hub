@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Crosshair, Zap, SprayCan, ArrowDownUp, CircleDot, Fence, ArrowRight } from "lucide-react";
+import { Crosshair, Zap, SprayCan, ArrowDownUp, CircleDot, Fence, Cog, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
@@ -20,6 +20,7 @@ const Index = () => {
     { icon: ArrowDownUp, title: t("Press Brake Bending", "Savijanje na presi"), desc: t("Sheet metal bending with precision angles and repeatable results.", "Savijanje lima s preciznim kutovima i ponovljivim rezultatima.") },
     { icon: CircleDot, title: t("Tube Bending", "Savijanje cijevi"), desc: t("Pipes, railings, and frames bent to exact specifications.", "Cijevi, ograde i okviri savijeni prema točnim specifikacijama.") },
     { icon: Fence, title: t("Metal Constructions", "Metalne konstrukcije"), desc: t("Custom fences, gates, structures, and stainless steel work.", "Prilagođene ograde, kapije, konstrukcije i inox radovi.") },
+    { icon: Cog, title: t("Machining", "Strojna obrada"), desc: t("Cutting, grinding, surface preparation and finishing services.", "Rezanje, brušenje, priprema površine i završna obrada.") },
   ];
 
   const steps = [
