@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Crosshair, Zap, SprayCan, ArrowDownUp, CircleDot, Fence, ArrowRight } from "lucide-react";
+import { Crosshair, Zap, SprayCan, ArrowDownUp, CircleDot, Fence, Cog, ArrowRight } from "lucide-react";
 import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
@@ -20,6 +20,7 @@ const Index = () => {
     { icon: ArrowDownUp, title: t("Press Brake Bending", "Savijanje na presi"), desc: t("Sheet metal bending with precision angles and repeatable results.", "Savijanje lima s preciznim kutovima i ponovljivim rezultatima.") },
     { icon: CircleDot, title: t("Tube Bending", "Savijanje cijevi"), desc: t("Pipes, railings, and frames bent to exact specifications.", "Cijevi, ograde i okviri savijeni prema točnim specifikacijama.") },
     { icon: Fence, title: t("Metal Constructions", "Metalne konstrukcije"), desc: t("Custom fences, gates, structures, and stainless steel work.", "Prilagođene ograde, kapije, konstrukcije i inox radovi.") },
+    { icon: Cog, title: t("Machining", "Strojna obrada"), desc: t("Cutting, grinding, surface preparation and finishing services.", "Rezanje, brušenje, priprema površine i završna obrada.") },
   ];
 
   const steps = [
@@ -79,12 +80,12 @@ const Index = () => {
             title={t("Our Services", "Naše usluge")}
             description={t("Complete metal fabrication capabilities under one roof", "Kompletne mogućnosti obrade metala pod jednim krovom")}
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((s, i) => (
-              <AnimatedSection key={s.title} delay={i * 0.1}>
+              <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div className="card-industrial p-6 h-full group">
-                  <s.icon className="w-10 h-10 text-primary mb-4 transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="font-heading text-xl uppercase font-semibold mb-2">{s.title}</h3>
+                  <s.icon className="w-9 h-9 text-primary mb-4 transition-transform duration-300 group-hover:scale-110" />
+                  <h3 className="font-heading text-lg uppercase font-semibold mb-2">{s.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
                 </div>
               </AnimatedSection>

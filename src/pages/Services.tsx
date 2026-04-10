@@ -9,6 +9,7 @@ import laserCleaning from "@/assets/laser-cleaning.jpg";
 import pressBrake from "@/assets/press-brake.jpg";
 import tubeBending from "@/assets/tube-bending.jpg";
 import metalConstructions from "@/assets/metal-constructions.jpg";
+import machining from "@/assets/machining.jpg";
 
 interface ServiceBlockProps {
   title: string;
@@ -117,6 +118,18 @@ const Services = () => {
       ).split("|"),
       image: metalConstructions,
       reverse: true,
+    },
+    {
+      title: t("Machining", "Strojna obrada"),
+      description: t(
+        "Machining services including cutting, grinding, surface preparation and finishing.",
+        "Strojna obrada uključujući rezanje, brušenje, pripremu površine i završnu obradu."
+      ),
+      bullets: t(
+        "Cutting|Grinding|Surface preparation|Painting|Finishing",
+        "Rezanje|Brušenje|Priprema površine|Bojanje|Završna obrada"
+      ).split("|"),
+      image: machining,
     },
   ];
 
