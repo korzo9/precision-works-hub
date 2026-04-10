@@ -30,7 +30,7 @@ const Projects = () => {
           <AnimatedSection>
             <SectionHeader
               title={t("Our Projects", "Naši projekti")}
-              subtitle={t(
+              description={t(
                 "Browse our portfolio of completed projects across metal fabrication, CNC cutting, welding, and restoration.",
                 "Pregledajte naš portfolio završenih projekata iz područja obrade metala, CNC rezanja, zavarivanja i restauracije."
               )}
