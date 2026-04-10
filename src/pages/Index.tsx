@@ -80,12 +80,12 @@ const Index = () => {
             title={t("Our Services", "Naše usluge")}
             description={t("Complete metal fabrication capabilities under one roof", "Kompletne mogućnosti obrade metala pod jednim krovom")}
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {services.map((s, i) => (
-              <AnimatedSection key={s.title} delay={i * 0.1}>
+              <AnimatedSection key={s.title} delay={i * 0.08}>
                 <div className="card-industrial p-6 h-full group">
-                  <s.icon className="w-10 h-10 text-primary mb-4 transition-transform duration-300 group-hover:scale-110" />
-                  <h3 className="font-heading text-xl uppercase font-semibold mb-2">{s.title}</h3>
+                  <s.icon className="w-9 h-9 text-primary mb-4 transition-transform duration-300 group-hover:scale-110" />
+                  <h3 className="font-heading text-lg uppercase font-semibold mb-2">{s.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
                 </div>
               </AnimatedSection>
