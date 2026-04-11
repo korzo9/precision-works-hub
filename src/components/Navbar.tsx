@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone, ChevronDown } from "lucide-react";
 import { useLang } from "@/context/LangContext";
+import logo from "@/assets/logo.png";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -58,7 +59,8 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/60">
       <div className="container-custom flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 shrink-0">
+        <Link to="/" className="flex items-center gap-2.5 shrink-0">
+          <img src={logo} alt="Korzo" className="h-9 w-auto" />
           <span className="font-heading text-xl font-bold uppercase tracking-wider">
             <span className="text-primary">Korzo</span> Sisak
           </span>
