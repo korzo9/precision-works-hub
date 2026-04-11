@@ -1,5 +1,5 @@
 import { useState, FormEvent } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
 import { z } from "zod";
 import Layout from "@/components/Layout";
 import SectionHeader from "@/components/SectionHeader";
@@ -7,18 +7,36 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { useLang } from "@/context/LangContext";
 import { toast } from "sonner";
 
+const FORMSPREE_URL = "https://formspree.io/f/xpwzgvkn";
+
 const Contact = () => {
   const { t } = useLang();
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [loading, setLoading] = useState(false);
+
+  const serviceOptions = [
+    { value: "", label: t("Select a service", "Odaberite uslugu") },
+    { value: "cnc-plasma", label: t("CNC Plasma Cutting", "CNC plazma rezanje") },
+    { value: "laser-welding", label: t("Laser Welding", "Lasersko zavarivanje") },
+    { value: "laser-cleaning", label: t("Laser Cleaning", "Lasersko čišćenje") },
+    { value: "press-brake", label: t("Press Brake Bending", "Savijanje na presi") },
+    { value: "tube-bending", label: t("Tube Bending", "Savijanje cijevi") },
+    { value: "metal-constructions", label: t("Metal Constructions", "Metalne konstrukcije") },
+    { value: "machining", label: t("Machining", "Strojna obrada") },
+    { value: "restoration", label: t("Restoration", "Restauracija") },
+    { value: "other", label: t("Other", "Ostalo") },
+  ];
 
   const contactSchema = z.object({
     name: z.string().trim().min(1, t("Name is required", "Ime je obavezno")).max(100),
     email: z.string().trim().email(t("Invalid email address", "Neispravna email adresa")).max(255),
+    phone: z.string().trim().max(30).optional(),
+    service: z.string().optional(),
     message: z.string().trim().min(1, t("Message is required", "Poruka je obavezna")).max(2000),
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     const result = contactSchema.safeParse(form);
     if (!result.success) {
@@ -30,9 +48,34 @@ const Contact = () => {
       return;
     }
     setErrors({});
-    toast.success(t("Message sent! We'll get back to you soon.", "Poruka poslana! Javit ćemo vam se uskoro."));
-    setForm({ name: "", email: "", message: "" });
+    setLoading(true);
+
+    try {
+      const res = await fetch(FORMSPREE_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone || "—",
+          service: form.service || "—",
+          message: form.message,
+          _replyto: form.email,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Failed");
+
+      toast.success(t("Message sent! We'll get back to you soon.", "Poruka poslana! Javit ćemo vam se uskoro."));
+      setForm({ name: "", email: "", phone: "", service: "", message: "" });
+    } catch {
+      toast.error(t("Failed to send message. Please try again.", "Slanje poruke nije uspjelo. Pokušajte ponovno."));
+    } finally {
+      setLoading(false);
+    }
   };
+
+  const inputClass = "w-full bg-card border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors";
 
   return (
     <Layout>
@@ -46,15 +89,15 @@ const Contact = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <AnimatedSection direction="left">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
-                  <label className="block text-sm font-heading uppercase tracking-wider mb-2">{t("Name", "Ime")}</label>
+                  <label className="block text-sm font-heading uppercase tracking-wider mb-2">{t("Full Name", "Ime i prezime")}</label>
                   <input
                     type="text"
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    className="w-full bg-card border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                    placeholder={t("Your name", "Vaše ime")}
+                    className={inputClass}
+                    placeholder={t("Your full name", "Vaše ime i prezime")}
                   />
                   {errors.name && <p className="text-primary text-xs mt-1">{errors.name}</p>}
                 </div>
@@ -64,10 +107,36 @@ const Contact = () => {
                     type="email"
                     value={form.email}
                     onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    className="w-full bg-card border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                    className={inputClass}
                     placeholder={t("your@email.com", "vaš@email.com")}
                   />
                   {errors.email && <p className="text-primary text-xs mt-1">{errors.email}</p>}
+                </div>
+                <div>
+                  <label className="block text-sm font-heading uppercase tracking-wider mb-2">
+                    {t("Phone (optional)", "Telefon (opcionalno)")}
+                  </label>
+                  <input
+                    type="tel"
+                    value={form.phone}
+                    onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                    className={inputClass}
+                    placeholder={t("+385 ...", "+385 ...")}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-heading uppercase tracking-wider mb-2">
+                    {t("Service", "Usluga")}
+                  </label>
+                  <select
+                    value={form.service}
+                    onChange={(e) => setForm({ ...form, service: e.target.value })}
+                    className={inputClass}
+                  >
+                    {serviceOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value}>{opt.label}</option>
+                    ))}
+                  </select>
                 </div>
                 <div>
                   <label className="block text-sm font-heading uppercase tracking-wider mb-2">{t("Message", "Poruka")}</label>
@@ -75,14 +144,18 @@ const Contact = () => {
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={5}
-                    className="w-full bg-card border border-border px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors resize-none"
+                    className={`${inputClass} resize-none`}
                     placeholder={t("Tell us about your project...", "Recite nam o svom projektu...")}
                   />
                   {errors.message && <p className="text-primary text-xs mt-1">{errors.message}</p>}
                 </div>
-                <button type="submit" className="btn-primary-glow flex items-center justify-center gap-2 w-full sm:w-auto">
-                  <Send className="w-4 h-4" />
-                  {t("Send Message", "Pošalji poruku")}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="btn-primary-glow flex items-center justify-center gap-2 w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
+                  {loading ? t("Sending...", "Slanje...") : t("Send Message", "Pošalji poruku")}
                 </button>
               </form>
             </AnimatedSection>

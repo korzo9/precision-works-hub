@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLang } from "@/context/LangContext";
 import { projects, categoryLabels } from "@/data/projects";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -51,72 +51,35 @@ const ProjectDetail = () => {
             </h1>
           </AnimatedSection>
 
-          {/* Main image */}
-          <AnimatedSection delay={0.15}>
-            <div className="aspect-video rounded-lg overflow-hidden bg-muted mb-8">
-              <img
-                src={project.images[0]}
-                alt={project.title[lang]}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </AnimatedSection>
-
           {/* Description */}
-          <AnimatedSection delay={0.2}>
-            <div className="prose prose-invert max-w-none mb-12">
+          <AnimatedSection delay={0.15}>
+            <div className="prose prose-invert max-w-none mb-10">
               <p className="text-lg text-muted-foreground leading-relaxed">
                 {project.description[lang]}
               </p>
             </div>
           </AnimatedSection>
 
-          {/* Process Steps */}
-          {project.processSteps && project.processSteps.length > 0 && (
-            <AnimatedSection delay={0.25}>
-              <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
-                {t("Process", "Proces")}
-              </h2>
-              <div className="flex flex-wrap items-center gap-3 mb-12">
-                {project.processSteps.map((step, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="bg-secondary border border-border rounded-sm px-4 py-2.5">
-                      <span className="text-xs text-primary font-heading uppercase tracking-wider block">
-                        {t("Step", "Korak")} {i + 1}
-                      </span>
-                      <span className="text-sm font-medium text-foreground">{step[lang]}</span>
-                    </div>
-                    {i < project.processSteps!.length - 1 && (
-                      <ArrowRight className="w-4 h-4 text-muted-foreground hidden sm:block" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-          )}
-
           {/* Gallery */}
-          {project.images.length > 1 && (
-            <AnimatedSection delay={0.3}>
-              <h2 className="text-2xl font-heading font-bold text-foreground mb-6">
-                {t("Gallery", "Galerija")}
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-                {project.images.slice(1).map((img, i) => (
-                  <div key={i} className="aspect-[4/3] rounded-lg overflow-hidden bg-muted">
-                    <img
-                      src={img}
-                      alt={`${project.title[lang]} ${i + 2}`}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-          )}
+          <AnimatedSection delay={0.2}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+              {project.images.map((img, i) => (
+                <div
+                  key={i}
+                  className={`rounded-lg overflow-hidden bg-muted ${i === 0 && project.images.length % 2 !== 0 ? "sm:col-span-2 aspect-video" : "aspect-[4/3]"}`}
+                >
+                  <img
+                    src={img}
+                    alt={`${project.title[lang]} ${i + 1}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
 
           {/* CTA */}
-          <AnimatedSection delay={0.35}>
+          <AnimatedSection delay={0.25}>
             <div className="bg-secondary border border-border rounded-lg p-8 sm:p-12 text-center">
               <h2 className="text-2xl sm:text-3xl font-heading font-bold text-foreground mb-4">
                 {t("Want a similar project?", "Želite sličan projekt?")}
