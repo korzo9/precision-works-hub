@@ -11,28 +11,14 @@ const FORMSPREE_URL = "https://formspree.io/f/mbdpnkay";
 
 const Contact = () => {
   const { t } = useLang();
-  const [form, setForm] = useState({ name: "", email: "", phone: "", service: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
-
-  const serviceOptions = [
-    { value: "", label: t("Select a service", "Odaberite uslugu") },
-    { value: "cnc-plasma", label: t("CNC Plasma Cutting", "CNC plazma rezanje") },
-    { value: "laser-welding", label: t("Laser Welding", "Lasersko zavarivanje") },
-    { value: "laser-cleaning", label: t("Laser Cleaning", "Lasersko čišćenje") },
-    { value: "press-brake", label: t("Press Brake Bending", "Savijanje na presi") },
-    { value: "tube-bending", label: t("Tube Bending", "Savijanje cijevi") },
-    { value: "metal-constructions", label: t("Metal Constructions", "Metalne konstrukcije") },
-    { value: "machining", label: t("Machining", "Strojna obrada") },
-    { value: "restoration", label: t("Restoration", "Restauracija") },
-    { value: "other", label: t("Other", "Ostalo") },
-  ];
 
   const contactSchema = z.object({
     name: z.string().trim().min(1, t("Name is required", "Ime je obavezno")).max(100),
     email: z.string().trim().email(t("Invalid email address", "Neispravna email adresa")).max(255),
     phone: z.string().trim().max(30).optional(),
-    service: z.string().optional(),
     message: z.string().trim().min(1, t("Message is required", "Poruka je obavezna")).max(2000),
   });
 
@@ -58,7 +44,6 @@ const Contact = () => {
           name: form.name,
           email: form.email,
           phone: form.phone || "—",
-          service: form.service || "—",
           message: form.message,
           _replyto: form.email,
         }),
@@ -67,7 +52,7 @@ const Contact = () => {
       if (!res.ok) throw new Error("Failed");
 
       toast.success(t("Message sent! We'll get back to you soon.", "Poruka poslana! Javit ćemo vam se uskoro."));
-      setForm({ name: "", email: "", phone: "", service: "", message: "" });
+      setForm({ name: "", email: "", phone: "", message: "" });
     } catch {
       toast.error(t("Failed to send message. Please try again.", "Slanje poruke nije uspjelo. Pokušajte ponovno."));
     } finally {
@@ -123,20 +108,6 @@ const Contact = () => {
                     className={inputClass}
                     placeholder={t("+385 ...", "+385 ...")}
                   />
-                </div>
-                <div>
-                  <label className="block text-sm font-heading uppercase tracking-wider mb-2">
-                    {t("Service", "Usluga")}
-                  </label>
-                  <select
-                    value={form.service}
-                    onChange={(e) => setForm({ ...form, service: e.target.value })}
-                    className={inputClass}
-                  >
-                    {serviceOptions.map((opt) => (
-                      <option key={opt.value} value={opt.value}>{opt.label}</option>
-                    ))}
-                  </select>
                 </div>
                 <div>
                   <label className="block text-sm font-heading uppercase tracking-wider mb-2">{t("Message", "Poruka")}</label>
