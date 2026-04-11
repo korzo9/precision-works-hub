@@ -6,6 +6,7 @@ import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import { useLang } from "@/context/LangContext";
 import heroBg from "@/assets/hero-bg.jpg";
+import logo from "@/assets/logo.png";
 import cncCutting from "@/assets/cnc-cutting.jpg";
 import laserWelding from "@/assets/laser-welding.jpg";
 import workshop from "@/assets/workshop.jpg";
@@ -41,6 +42,9 @@ const Index = () => {
         </div>
         <div className="relative container-custom px-4 sm:px-6 lg:px-8 text-center">
           <AnimatedSection>
+            <img src={logo} alt="Korzo logo" className="w-28 sm:w-36 md:w-44 mx-auto mb-6 opacity-80" />
+          </AnimatedSection>
+          <AnimatedSection delay={0.1}>
             <span className="inline-block text-primary font-heading uppercase tracking-[0.3em] text-xs sm:text-sm mb-6">
               {t("Since 1988", "Od 1988.")}
             </span>
