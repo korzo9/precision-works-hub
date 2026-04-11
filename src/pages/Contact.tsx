@@ -7,7 +7,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import { useLang } from "@/context/LangContext";
 import { toast } from "sonner";
 
-const FORMSPREE_URL = "https://formspree.io/f/xpwzgvkn";
+const FORMSPREE_URL = "https://formspree.io/f/mbdpnkay";
 
 const Contact = () => {
   const { t } = useLang();
