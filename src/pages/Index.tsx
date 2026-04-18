@@ -5,7 +5,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import { useLang } from "@/context/LangContext";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg1.jpeg";
 import logo from "@/assets/logo.png";
 import cncCutting from "@/assets/cnc-cutting.jpg";
 import laserWelding from "@/assets/laser-welding.jpg";

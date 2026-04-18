@@ -12,7 +12,7 @@ import tubeBending from "@/assets/tube-bending.jpg";
 import metalConstructions from "@/assets/metal-constructions.jpg";
 import restoration from "@/assets/restoration.jpg";
 import workshop from "@/assets/workshop.jpg";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/hero-bg1.jpeg";
 import cadDesign from "@/assets/cad-design.jpg";
 
 const Gallery = () => {
