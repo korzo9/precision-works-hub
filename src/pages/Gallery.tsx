@@ -34,7 +34,7 @@ const Gallery = () => {
     { src: laserWelding, categoryKey: "Welding", alt: t("Laser welding", "Lasersko zavarivanje") },
     { src: metalConstructions, categoryKey: "Constructions", alt: t("Metal gate construction", "Izrada metalnih kapija") },
     { src: restoration, categoryKey: "Restoration", alt: t("Metal restoration", "Restauracija metala") },
-    { src: heroBg, categoryKey: "CNC Cutting", alt: t("CNC cutting workshop", "Radionica CNC rezanja") },
+    { src: heroBg, categoryKey: "Restoration", alt: t("Metal restoration", "Restauracija metala") },
     { src: pressBrake, categoryKey: "Constructions", alt: t("Press brake bending", "Savijanje na presi") },
     { src: tubeBending, categoryKey: "Constructions", alt: t("Tube bending", "Savijanje cijevi") },
     { src: laserCleaning, categoryKey: "Restoration", alt: t("Laser cleaning", "Lasersko čišćenje") },
