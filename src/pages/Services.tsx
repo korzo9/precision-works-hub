@@ -51,8 +51,8 @@ const Services = () => {
         "Naš CNC plazma sustav za rezanje pruža precizne rezove na širokom rasponu metala. Računalno upravljana točnost osigurava dosljedne, ponovljive rezultate za jednostavne i složene oblike."
       ),
       bullets: t(
-        "Steel, stainless steel, and aluminum cutting|Thickness up to 50mm|Complex shapes and patterns|High precision with minimal heat distortion|Both small and large-scale production",
-        "Rezanje čelika, nehrđajućeg čelika i aluminija|Debljina do 50mm|Složeni oblici i uzorci|Visoka preciznost s minimalnom toplinskom deformacijom|Mala i velika serijska proizvodnja"
+        "Steel, stainless steel, and aluminum cutting|Complex shapes and patterns|High precision with minimal heat distortion|Both small and large-scale production",
+        "Rezanje čelika, nehrđajućeg čelika i aluminija|Složeni oblici i uzorci|Visoka preciznost s minimalnom toplinskom deformacijom|Mala i velika serijska proizvodnja"
       ).split("|"),
       image: cncCutting,
     },

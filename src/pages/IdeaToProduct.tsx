@@ -22,8 +22,8 @@ const IdeaToProduct = () => {
       icon: PenTool,
       title: t("2. Design & CAD", "2. Dizajn i CAD"),
       desc: t(
-        "Our team creates detailed technical drawings using AutoCAD and 3D models in SketchUp. Every dimension is calculated for precision.",
-        "Naš tim izrađuje detaljne tehničke crteže u AutoCAD-u i 3D modele u SketchUp-u. Svaka dimenzija je izračunata za preciznost."
+        "Our team creates detailed technical drawings using CAD and 3D models. Every dimension is calculated for precision.",
+        "Naš tim izrađuje detaljne tehničke crteže u CAD-u i 3D modele. Svaka dimenzija je izračunata za preciznost."
       ),
     },
     {
@@ -66,8 +66,8 @@ const IdeaToProduct = () => {
               <div className="divider-red mb-4" />
               <p className="text-muted-foreground leading-relaxed mb-3">
                 {t(
-                  "Every great product starts with a great design. We use professional CAD software (AutoCAD) and 3D modeling tools (SketchUp) to create detailed plans before production begins.",
-                  "Svaki sjajan proizvod počinje sjajnim dizajnom. Koristimo profesionalni CAD softver (AutoCAD) i alate za 3D modeliranje (SketchUp) za izradu detaljnih planova prije početka proizvodnje."
+                  "Every great product starts with a great design. We use professional CAD software and 3D modeling tools to create detailed plans before production begins.",
+                  "Svaki sjajan proizvod počinje sjajnim dizajnom. Koristimo profesionalni CAD softver i alate za 3D modeliranje za izradu detaljnih planova prije početka proizvodnje."
                 )}
               </p>
               <p className="text-muted-foreground leading-relaxed">
