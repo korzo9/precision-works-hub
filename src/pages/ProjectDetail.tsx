@@ -51,32 +51,57 @@ const ProjectDetail = () => {
             </h1>
           </AnimatedSection>
 
-          {/* Description */}
+          {/* Cover image */}
           <AnimatedSection delay={0.15}>
-            <div className="prose prose-invert max-w-none mb-10">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                {project.description[lang]}
-              </p>
+            <div className="rounded-lg overflow-hidden bg-muted aspect-[16/10] mb-10">
+              <img
+                src={project.coverImage}
+                alt={project.title[lang]}
+                className="w-full h-full object-cover"
+              />
             </div>
           </AnimatedSection>
 
-          {/* Gallery */}
+          {/* Description */}
           <AnimatedSection delay={0.2}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
-              {project.images.map((img, i) => (
-                <div
+            <div className="prose prose-invert max-w-none mb-12">
+              {project.description[lang].split("\n").map((para, i) => (
+                <p
                   key={i}
-                  className={`rounded-lg overflow-hidden bg-muted ${i === 0 && project.images.length % 2 !== 0 ? "sm:col-span-2 aspect-video" : "aspect-[4/3]"}`}
+                  className="text-lg text-muted-foreground leading-relaxed mb-4 whitespace-pre-line"
                 >
-                  <img
-                    src={img}
-                    alt={`${project.title[lang]} ${i + 1}`}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+                  {para}
+                </p>
               ))}
             </div>
           </AnimatedSection>
+
+          {/* Gallery – renders however many images exist */}
+          {project.images.length > 0 && (
+            <AnimatedSection delay={0.25}>
+              <div
+                className={`grid gap-4 mb-12 ${
+                  project.images.length === 1
+                    ? "grid-cols-1"
+                    : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                }`}
+              >
+                {project.images.map((img, i) => (
+                  <div
+                    key={i}
+                    className="rounded-lg overflow-hidden bg-muted aspect-[4/3] group"
+                  >
+                    <img
+                      src={img}
+                      alt={`${project.title[lang]} – ${i + 1}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          )}
 
           {/* CTA */}
           <AnimatedSection delay={0.25}>
