@@ -17,7 +17,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
     >
       <div className="aspect-[4/3] overflow-hidden bg-muted">
         <img
-          src={project.images[0]}
+          src={project.coverImage}
           alt={project.title[lang]}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
