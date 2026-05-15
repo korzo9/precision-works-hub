@@ -1,3 +1,21 @@
+// Dragon restoration assets
+import dragonCover from "@/assets/project_assets/dragon-restoration/cover.jpg";
+import dragon1 from "@/assets/project_assets/dragon-restoration/image1.jpg";
+import dragon2 from "@/assets/project_assets/dragon-restoration/image2.jpg";
+import dragon3 from "@/assets/project_assets/dragon-restoration/image3.jpg";
+import dragon4 from "@/assets/project_assets/dragon-restoration/image4.jpg";
+import dragon5 from "@/assets/project_assets/dragon-restoration/image5.jpg";
+import dragon6 from "@/assets/project_assets/dragon-restoration/image6.jpg";
+import dragon7 from "@/assets/project_assets/dragon-restoration/image7.jpg";
+import dragon8 from "@/assets/project_assets/dragon-restoration/image8.jpg";
+import dragon9 from "@/assets/project_assets/dragon-restoration/image9.jpg";
+
+export interface ProjectMedia {
+  type?: "image" | "video";
+  src: string;
+  poster?: string;
+}
+
 export interface Project {
   id: string;
   slug: string;
@@ -5,8 +23,11 @@ export interface Project {
   description: { en: string; hr: string };
   shortDescription: { en: string; hr: string };
   category: "cnc" | "welding" | "construction" | "restoration";
+  coverImage: string;
   images: string[];
-  processSteps?: { en: string; hr: string }[];
+  videos?: ProjectMedia[];
+  date?: string;
+  featured?: boolean;
 }
 
 export const categoryLabels: Record<Project["category"], { en: string; hr: string }> = {
@@ -16,32 +37,31 @@ export const categoryLabels: Record<Project["category"], { en: string; hr: strin
   restoration: { en: "Restoration", hr: "Restauracije" },
 };
 
+const placeholder = "/placeholder.svg";
+
 export const projects: Project[] = [
   {
-    id: "1",
+    id: "dragon-restoration",
     slug: "restauracija-metalnog-cimera",
-    title: { en: "Restoration", hr: "Restauracija metalnog cimera" },
+    title: {
+      en: "Restoration of an Antique Metal Sign",
+      hr: "Restauracija metalnog cimera",
+    },
     shortDescription: {
-      en: "Custom steel fence with modern geometric design for a residential property.",
-      hr: "Metalni cimer s početka 20. stoljeća, restauriran u cijelosti: od izrade nedostajućih dijelova do zaštite autentičnog natpisa. Drago nam je što smo mogli sudjelovati u očuvanju ovakvog komada povijesti na inicijativu Hrvatskog restauratorskog zavoda. ✔️ rekonstruirani su svi nedostajući elementi ✔️ zadržan je originalni natpis ✔️ površina je zaštićena i prilagođena muzejskoj prezentaciji, izradom stalka",
+      en: "Full restoration of an early 20th-century metal sign – missing parts reconstructed, original inscription preserved, finished with a museum-grade display stand.",
+      hr: "Cjelovita restauracija metalnog cimera s početka 20. stoljeća – rekonstruirani nedostajući dijelovi, sačuvan originalni natpis, izrađen stalak za muzejsku prezentaciju.",
     },
     description: {
-      en: "A complete custom steel fence project for a residential property in Sisak. The fence features a modern geometric pattern, CNC plasma-cut from 3mm steel plate, powder-coated in anthracite grey. The project included design, fabrication, surface treatment, and on-site installation.",
-      hr: "Metalni cimer s početka 20. stoljeća, restauriran u cijelosti: od izrade nedostajućih dijelova do zaštite autentičnog natpisa. Drago nam je što smo mogli sudjelovati u očuvanju ovakvog komada povijesti na inicijativu Hrvatskog restauratorskog zavoda. ✔️ rekonstruirani su svi nedostajući elementi ✔️ zadržan je originalni natpis ✔️ površina je zaštićena i prilagođena muzejskoj prezentaciji, izradom stalka",
-   
+      en: "An early 20th-century metal sign, restored in its entirety: from fabricating the missing parts to protecting the authentic inscription. We are proud to have taken part in preserving such a piece of history at the initiative of the Croatian Conservation Institute.\n\n• All missing elements were reconstructed\n• The original inscription was preserved\n• The surface was protected and adapted for museum presentation, with a custom display stand",
+      hr: "Metalni cimer s početka 20. stoljeća, restauriran u cijelosti: od izrade nedostajućih dijelova do zaštite autentičnog natpisa. Drago nam je što smo mogli sudjelovati u očuvanju ovakvog komada povijesti na inicijativu Hrvatskog restauratorskog zavoda.\n\n• Rekonstruirani su svi nedostajući elementi\n• Zadržan je originalni natpis\n• Površina je zaštićena i prilagođena muzejskoj prezentaciji, izradom stalka",
     },
-    category: "construction",
-    images: ["public\project_assets\zmaj\zmaj (1).jpg", "/placeholder.svg", "/placeholder.svg"],
-    processSteps: [
-      { en: "CAD Design", hr: "CAD dizajn" },
-      { en: "CNC Plasma Cutting", hr: "CNC plazma rezanje" },
-      { en: "Welding & Assembly", hr: "Zavarivanje i montaža" },
-      { en: "Powder Coating", hr: "Plastifikacija" },
-      { en: "On-site Installation", hr: "Montaža na lokaciji" },
-    ],
+    category: "restoration",
+    coverImage: dragonCover,
+    images: [dragon2, dragon3, dragon4, dragon5, dragon6, dragon7, dragon8, dragon9, dragon1],
+    featured: true,
   },
   {
-    id: "2",
+    id: "stainless-steel-railing",
     slug: "stainless-steel-railing",
     title: { en: "Stainless Steel Railing", hr: "Inox ograda" },
     shortDescription: {
@@ -53,17 +73,11 @@ export const projects: Project[] = [
       hr: "Visokokvalitetni sustav inox ograde s kaljenim staklenim panelima, dizajniran i izrađen za moderan poslovni objekt. Precizno lasersko zavarivanje osiguralo je čiste, polirane spojeve kroz cijelu instalaciju.",
     },
     category: "welding",
-    images: ["/placeholder.svg", "/placeholder.svg"],
-    processSteps: [
-      { en: "Measurement & Design", hr: "Mjerenje i dizajn" },
-      { en: "Tube Bending", hr: "Savijanje cijevi" },
-      { en: "Laser Welding", hr: "Lasersko zavarivanje" },
-      { en: "Polishing", hr: "Poliranje" },
-      { en: "Installation", hr: "Montaža" },
-    ],
+    coverImage: placeholder,
+    images: [placeholder, placeholder],
   },
   {
-    id: "3",
+    id: "industrial-cnc-parts",
     slug: "industrial-cnc-parts",
     title: { en: "Industrial CNC Parts", hr: "Industrijski CNC dijelovi" },
     shortDescription: {
@@ -75,10 +89,11 @@ export const projects: Project[] = [
       hr: "Serijska proizvodnja preciznih CNC plazma rezanih čeličnih komponenti za industrijske strojeve. Dijelovi su rezani iz čeličnog lima debljine 10mm i 15mm s tolerancijama ±0.5mm, zatim brušeni i pripremljeni za montažu.",
     },
     category: "cnc",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    coverImage: placeholder,
+    images: [placeholder, placeholder, placeholder],
   },
   {
-    id: "4",
+    id: "vintage-gate-restoration",
     slug: "vintage-gate-restoration",
     title: { en: "Vintage Gate Restoration", hr: "Restauracija starih vrata" },
     shortDescription: {
@@ -90,17 +105,11 @@ export const projects: Project[] = [
       hr: "Potpuna restauracija historijskih kovanih željeznih vrata iz kasnog 19. stoljeća. Proces je uključivao lasersko čišćenje za uklanjanje desetljeća hrđe i boje, strukturalne popravke, zamjenu nedostajućih dekorativnih elemenata i nanošenje zaštitnog premaza.",
     },
     category: "restoration",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
-    processSteps: [
-      { en: "Assessment", hr: "Procjena stanja" },
-      { en: "Laser Cleaning", hr: "Lasersko čišćenje" },
-      { en: "Structural Repair", hr: "Strukturalni popravak" },
-      { en: "Decorative Restoration", hr: "Dekorativna restauracija" },
-      { en: "Protective Coating", hr: "Zaštitni premaz" },
-    ],
+    coverImage: placeholder,
+    images: [placeholder, placeholder, placeholder],
   },
   {
-    id: "5",
+    id: "metal-staircase-construction",
     slug: "metal-staircase-construction",
     title: { en: "Metal Staircase", hr: "Metalno stubište" },
     shortDescription: {
@@ -112,18 +121,11 @@ export const projects: Project[] = [
       hr: "Industrijsko metalno stubište dizajnirano po mjeri za prenamjenu loft stana. Stubište ima CNC rezane čelične nosače, gazišta savijena na presi i laserski zavarene spojeve za čist, moderan izgled.",
     },
     category: "construction",
-    images: ["/placeholder.svg", "/placeholder.svg"],
-    processSteps: [
-      { en: "3D Design", hr: "3D dizajn" },
-      { en: "CNC Cutting", hr: "CNC rezanje" },
-      { en: "Press Brake Bending", hr: "Savijanje na presi" },
-      { en: "Laser Welding", hr: "Lasersko zavarivanje" },
-      { en: "Surface Treatment", hr: "Površinska obrada" },
-      { en: "Installation", hr: "Montaža" },
-    ],
+    coverImage: placeholder,
+    images: [placeholder, placeholder],
   },
   {
-    id: "6",
+    id: "custom-steel-table",
     slug: "custom-steel-table",
     title: { en: "Custom Steel Table", hr: "Čelični stol po mjeri" },
     shortDescription: {
@@ -135,6 +137,7 @@ export const projects: Project[] = [
       hr: "Blagovaonički stol industrijskog stila po mjeri s CNC plazma rezanom dekorativnom čeličnom bazom i masivnom drvenom pločom. Baza ima složen geometrijski uzorak, precizno zavarena i završno obrađena mat crnom plastifikacijom.",
     },
     category: "cnc",
-    images: ["/placeholder.svg", "/placeholder.svg"],
+    coverImage: placeholder,
+    images: [placeholder, placeholder],
   },
 ];
