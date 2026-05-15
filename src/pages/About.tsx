@@ -41,8 +41,8 @@ const About = () => {
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 {t(
-                  "We believe in combining traditional craftsmanship with modern technology. Our team brings together years of hands-on experience with state-of-the-art CNC plasma cutting, laser welding, and precision bending equipment.",
-                  "Vjerujemo u spajanje tradicionalne vještine s modernom tehnologijom. Naš tim spaja godine praktičnog iskustva s najsuvremenijom CNC plazma opremom, laserskim zavarivanjem i preciznim strojevima za savijanje."
+                  "We believe in combining traditional craftsmanship with modern technology. Our team brings together years of hands-on experience with precision equipment.",
+                  "Vjerujemo u spajanje tradicionalne vještine s modernom tehnologijom. Naš tim spaja godine praktičnog iskustva s najsuvremenijom opremom i preciznim strojevima za savijanje."
                 )}
               </p>
               <p className="text-muted-foreground leading-relaxed">

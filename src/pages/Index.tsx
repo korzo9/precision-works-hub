@@ -124,8 +124,8 @@ const Index = () => {
               </p>
               <p className="text-muted-foreground leading-relaxed mb-6">
                 {t(
-                  "Our workshop is equipped with state-of-the-art CNC machinery, laser welding equipment, and experienced operators who take pride in every project.",
-                  "Naša radionica opremljena je najsuvremenijim CNC strojevima, opremom za lasersko zavarivanje i iskusnim operaterima koji su ponosni na svaki projekt."
+                  "Our workshop is equipped with state-of-the-art machinery, equipment and experienced operators who take pride in every project.",
+                  "Naša radionica opremljena je najsuvremenijim strojevima, opremom i iskusnim operaterima koji su ponosni na svaki projekt."
                 )}
               </p>
               <Link to="/about" className="btn-outline-industrial inline-block">

@@ -19,18 +19,19 @@ export const categoryLabels: Record<Project["category"], { en: string; hr: strin
 export const projects: Project[] = [
   {
     id: "1",
-    slug: "steel-fence-sisak",
-    title: { en: "Steel Fence – Sisak", hr: "Čelična ograda – Sisak" },
+    slug: "restauracija-metalnog-cimera",
+    title: { en: "Restoration", hr: "Restauracija metalnog cimera" },
     shortDescription: {
       en: "Custom steel fence with modern geometric design for a residential property.",
-      hr: "Čelična ograda modernog geometrijskog dizajna za stambeni objekt.",
+      hr: "Metalni cimer s početka 20. stoljeća, restauriran u cijelosti: od izrade nedostajućih dijelova do zaštite autentičnog natpisa. Drago nam je što smo mogli sudjelovati u očuvanju ovakvog komada povijesti na inicijativu Hrvatskog restauratorskog zavoda. ✔️ rekonstruirani su svi nedostajući elementi ✔️ zadržan je originalni natpis ✔️ površina je zaštićena i prilagođena muzejskoj prezentaciji, izradom stalka",
     },
     description: {
       en: "A complete custom steel fence project for a residential property in Sisak. The fence features a modern geometric pattern, CNC plasma-cut from 3mm steel plate, powder-coated in anthracite grey. The project included design, fabrication, surface treatment, and on-site installation.",
-      hr: "Kompletna izrada čelične ograde za stambeni objekt u Sisku. Ograda ima moderan geometrijski uzorak, CNC plazma rezan iz čeličnog lima debljine 3mm, plastificiran u antracit sivoj boji. Projekt je uključivao dizajn, izradu, površinsku obradu i montažu na lokaciji.",
+      hr: "Metalni cimer s početka 20. stoljeća, restauriran u cijelosti: od izrade nedostajućih dijelova do zaštite autentičnog natpisa. Drago nam je što smo mogli sudjelovati u očuvanju ovakvog komada povijesti na inicijativu Hrvatskog restauratorskog zavoda. ✔️ rekonstruirani su svi nedostajući elementi ✔️ zadržan je originalni natpis ✔️ površina je zaštićena i prilagođena muzejskoj prezentaciji, izradom stalka",
+   
     },
     category: "construction",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    images: ["public\project_assets\zmaj\zmaj (1).jpg", "/placeholder.svg", "/placeholder.svg"],
     processSteps: [
       { en: "CAD Design", hr: "CAD dizajn" },
       { en: "CNC Plasma Cutting", hr: "CNC plazma rezanje" },
@@ -113,7 +114,7 @@ export const projects: Project[] = [
     category: "construction",
     images: ["/placeholder.svg", "/placeholder.svg"],
     processSteps: [
-      { en: "3D Design (SketchUp)", hr: "3D dizajn (SketchUp)" },
+      { en: "3D Design", hr: "3D dizajn" },
       { en: "CNC Cutting", hr: "CNC rezanje" },
       { en: "Press Brake Bending", hr: "Savijanje na presi" },
       { en: "Laser Welding", hr: "Lasersko zavarivanje" },
