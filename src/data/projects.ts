@@ -74,7 +74,7 @@ export const projects: Project[] = [
     },
     category: "welding",
     coverImage: placeholder,
-    images: [placeholder, placeholder],
+    images: ["src\assets\project_assets\vrata-restoration\vrata%20(3).jpg", placeholder],
   },
   {
     id: "industrial-cnc-parts",
