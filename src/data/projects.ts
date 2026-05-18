@@ -10,6 +10,52 @@ import dragon7 from "@/assets/project_assets/dragon-restoration/image7.jpg";
 import dragon8 from "@/assets/project_assets/dragon-restoration/image8.jpg";
 import dragon9 from "@/assets/project_assets/dragon-restoration/image9.jpg";
 
+import vrataCover from "@/assets/project_assets/vrata-restoration/vrata (2).jpg";
+import vrata1 from "@/assets/project_assets/vrata-restoration/vrata (1).jpg";
+import vrata2 from "@/assets/project_assets/vrata-restoration/vrata (2).jpg";
+import vrata3 from "@/assets/project_assets/vrata-restoration/vrata (3).jpg";
+import vrata4 from "@/assets/project_assets/vrata-restoration/vrata (4).jpg";
+import vrata5 from "@/assets/project_assets/vrata-restoration/vrata (5).jpg";
+import vrata6 from "@/assets/project_assets/vrata-restoration/vrata (6).jpg";
+import vrata7 from "@/assets/project_assets/vrata-restoration/vrata (7).jpg";
+import vrata8 from "@/assets/project_assets/vrata-restoration/vrata (8).jpg";
+import vrata9 from "@/assets/project_assets/vrata-restoration/vrata (9).jpg";
+
+// Stepenice (stairs) assets
+import stepeniceCover from "@/assets/project_assets/stepenice/stepenice (10).jpg";
+import stepenice1 from "@/assets/project_assets/stepenice/stepenice (1).jpg";
+import stepenice2 from "@/assets/project_assets/stepenice/stepenice (2).jpg";
+import stepenice3 from "@/assets/project_assets/stepenice/stepenice (3).jpg";
+import stepenice4 from "@/assets/project_assets/stepenice/stepenice (4).jpg";
+import stepenice5 from "@/assets/project_assets/stepenice/stepenice (5).jpg";
+import stepenice6 from "@/assets/project_assets/stepenice/stepenice (6).jpg";
+import stepenice7 from "@/assets/project_assets/stepenice/stepenice (7).jpg";
+import stepenice8 from "@/assets/project_assets/stepenice/stepenice (8).jpg";
+import stepenice9 from "@/assets/project_assets/stepenice/stepenice (9).jpg";
+import stepenice10 from "@/assets/project_assets/stepenice/stepenice (10).jpg";
+import stepenice11 from "@/assets/project_assets/stepenice/stepenice (11).jpg";
+import stepenice12 from "@/assets/project_assets/stepenice/stepenice (12).jpg";
+import stepenice13 from "@/assets/project_assets/stepenice/stepenice (13).jpg";
+import stepenice14 from "@/assets/project_assets/stepenice/stepenice (14).jpg";
+import stepenice15 from "@/assets/project_assets/stepenice/stepenice (15).jpg";
+import stepenice16 from "@/assets/project_assets/stepenice/stepenice (16).jpg";
+
+// Hoku assets
+import hokuCover from "@/assets/project_assets/hoku/hoku (2).jpg";
+import hoku1 from "@/assets/project_assets/hoku/hoku (1).jpg";
+import hoku2 from "@/assets/project_assets/hoku/hoku (2).jpg";
+import hoku3 from "@/assets/project_assets/hoku/hoku (3).jpg";
+import hoku4 from "@/assets/project_assets/hoku/hoku (4).jpg";
+
+// Rubnjaci assets
+import rubnjaciCover from "@/assets/project_assets/rubnjaci/rubnjaci (5).jpg";
+import rubnjaci1 from "@/assets/project_assets/rubnjaci/rubnjaci (1).jpg";
+import rubnjaci2 from "@/assets/project_assets/rubnjaci/rubnjaci (2).jpg";
+import rubnjaci3 from "@/assets/project_assets/rubnjaci/rubnjaci (3).jpg";
+import rubnjaci4 from "@/assets/project_assets/rubnjaci/rubnjaci (4).jpg";
+import rubnjaci5 from "@/assets/project_assets/rubnjaci/rubnjaci (5).jpg";
+
+
 export interface ProjectMedia {
   type?: "image" | "video";
   src: string;
@@ -22,7 +68,7 @@ export interface Project {
   title: { en: string; hr: string };
   description: { en: string; hr: string };
   shortDescription: { en: string; hr: string };
-  category: "cnc" | "welding" | "construction" | "restoration";
+  category: "cnc" | "welding" | "construction" | "restoration" | "press-brake";
   coverImage: string;
   images: string[];
   videos?: ProjectMedia[];
@@ -35,6 +81,7 @@ export const categoryLabels: Record<Project["category"], { en: string; hr: strin
   welding: { en: "Welding", hr: "Zavarivanje" },
   construction: { en: "Construction", hr: "Konstrukcije" },
   restoration: { en: "Restoration", hr: "Restauracije" },
+  "press-brake": { en: "Press Brake", hr: "Savijanje lima" },
 };
 
 const placeholder = "/placeholder.svg";
@@ -61,68 +108,85 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    id: "stainless-steel-railing",
-    slug: "stainless-steel-railing",
-    title: { en: "Stainless Steel Railing", hr: "Inox ograda" },
+    id: "stepenice",
+    slug: "izrada-celicnih-stepenica",
+    title: { en: "Steel Stair Fabrication", hr: "Izrada čeličnih stepenica" },
     shortDescription: {
-      en: "Premium stainless steel railing with glass panels for a commercial building.",
-      hr: "Premium inox ograda sa staklenim panelima za poslovni objekt.",
+      en: "We produce steel stairs of various shapes and sizes, tailored to each space.",
+      hr: "Proizvodimo čelične stepenice raznih oblika i veličina, prilagođene svakom prostoru.",
     },
     description: {
-      en: "High-quality stainless steel railing system with tempered glass panels, designed and fabricated for a modern commercial building. Precision laser welding ensured clean, polished joints throughout the installation.",
-      hr: "Visokokvalitetni sustav inox ograde s kaljenim staklenim panelima, dizajniran i izrađen za moderan poslovni objekt. Precizno lasersko zavarivanje osiguralo je čiste, polirane spojeve kroz cijelu instalaciju.",
-    },
-    category: "welding",
-    coverImage: placeholder,
-    images: ["src\assets\project_assets\vrata-restoration\vrata%20(3).jpg", placeholder],
-  },
-  {
-    id: "industrial-cnc-parts",
-    slug: "industrial-cnc-parts",
-    title: { en: "Industrial CNC Parts", hr: "Industrijski CNC dijelovi" },
-    shortDescription: {
-      en: "Precision CNC plasma-cut components for industrial machinery.",
-      hr: "Precizno CNC plazma rezani dijelovi za industrijske strojeve.",
-    },
-    description: {
-      en: "A batch production run of precision CNC plasma-cut steel components for industrial machinery. Parts were cut from 10mm and 15mm steel plate with tolerances of ±0.5mm, then deburred and prepared for assembly.",
-      hr: "Serijska proizvodnja preciznih CNC plazma rezanih čeličnih komponenti za industrijske strojeve. Dijelovi su rezani iz čeličnog lima debljine 10mm i 15mm s tolerancijama ±0.5mm, zatim brušeni i pripremljeni za montažu.",
-    },
-    category: "cnc",
-    coverImage: placeholder,
-    images: [placeholder, placeholder, placeholder],
-  },
-  {
-    id: "vintage-gate-restoration",
-    slug: "vintage-gate-restoration",
-    title: { en: "Vintage Gate Restoration", hr: "Restauracija starih vrata" },
-    shortDescription: {
-      en: "Complete restoration of a 19th-century wrought iron gate.",
-      hr: "Kompletna restauracija kovanih željeznih vrata iz 19. stoljeća.",
-    },
-    description: {
-      en: "Full restoration of a historic wrought iron gate from the late 19th century. The process included laser cleaning to remove decades of rust and paint, structural repairs, replacement of missing decorative elements, and protective coating application.",
-      hr: "Potpuna restauracija historijskih kovanih željeznih vrata iz kasnog 19. stoljeća. Proces je uključivao lasersko čišćenje za uklanjanje desetljeća hrđe i boje, strukturalne popravke, zamjenu nedostajućih dekorativnih elemenata i nanošenje zaštitnog premaza.",
-    },
-    category: "restoration",
-    coverImage: placeholder,
-    images: [placeholder, placeholder, placeholder],
-  },
-  {
-    id: "metal-staircase-construction",
-    slug: "metal-staircase-construction",
-    title: { en: "Metal Staircase", hr: "Metalno stubište" },
-    shortDescription: {
-      en: "Custom industrial-style metal staircase for a loft apartment.",
-      hr: "Industrijsko metalno stubište po mjeri za loft stan.",
-    },
-    description: {
-      en: "A custom-designed industrial-style metal staircase for a loft apartment conversion. The staircase features CNC-cut steel stringers, press-brake bent treads, and laser-welded joints for a clean, modern aesthetic.",
-      hr: "Industrijsko metalno stubište dizajnirano po mjeri za prenamjenu loft stana. Stubište ima CNC rezane čelične nosače, gazišta savijena na presi i laserski zavarene spojeve za čist, moderan izgled.",
+      en: "We produce steel stairs of various shapes and sizes, tailored to each space. From the initial concept to final installation, every step of the process is carefully guided by our expert team. Every detail is thoughtfully crafted to ensure superior functionality and aesthetics.",
+      hr: "Proizvodimo čelične stepenice raznih oblika i veličina, prilagođene svakom prostoru. Od početne ideje do konačne instalacije, svaki korak procesa pažljivo je vođen našom stručnom rukom. Svaki detalj pažljivo je oblikovan kako bi osigurao vrhunsku funkcionalnost i estetiku.",
     },
     category: "construction",
-    coverImage: placeholder,
-    images: [placeholder, placeholder],
+    coverImage: stepeniceCover,
+    images: [
+      stepenice1,
+      stepenice2,
+      stepenice3,
+      stepenice4,
+      stepenice5,
+      stepenice6,
+      stepenice7,
+      stepenice8,
+      stepenice9,
+      stepenice10,
+      stepenice11,
+      stepenice12,
+      stepenice13,
+      stepenice14,
+      stepenice15,
+      stepenice16,
+    ],
+  },
+  {
+    id: "vrata-restoration-replica",
+    slug: "restauracija-i-izrada-replike",
+    title: { en: "Door Restoration & Replica", hr: "Restauracija i izrada replike" },
+    shortDescription: {
+      en: "Restoration of historic metal doors with authentic replica fabrication.",
+      hr: "Restauracija starih metalnih vrata i izrada autentične replike.",
+    },
+    description: {
+      en: "With great effort, precision and respect for the original design, we restored historic metal doors and created an authentic replica according to the original specifications. The restoration process preserved the original aesthetic while the replica ensures future accessibility and protection of the original piece.",
+      hr: "Uz puno truda, preciznosti i poštovanja prema izvornom izgledu, restaurirali smo stara metalna vrata i izradili repliku prema originalu. Proces restauracije sačuvao je originalni izgled dok replika osigurava dostupnost i zaštitu originalnog komada.",
+    },
+    category: "restoration",
+    coverImage: vrataCover,
+    images: [vrata1, vrata2, vrata3, vrata4, vrata5, vrata6, vrata7, vrata8, vrata9],
+  },
+  {
+    id: "hoku-logo-sign",
+    slug: "hoku-logo-natpis",
+    title: { en: "Logo and Sign", hr: "Logo i natpis" },
+    shortDescription: {
+      en: "Logo and sign production for the Dutch House using craftsmanship and modern technology.",
+      hr: "Izradili smo logo i natpis na Holandskoj kući, kombinacijom vještina ručnog rada i moderne tehnologije.",
+    },
+    description: {
+      en: "We created the logo and sign for the Dutch House by combining skilled handwork with modern technology. From the workshop perspective, we achieved an excellent blend of craftsmanship and precision.",
+      hr: "Izradili smo logo i natpis na Holandskoj kući, kombinacijom vještina ručnog rada i moderne tehnologije. Iz radioničke perspektive dobili smo odličan spoj!",
+    },
+    category: "cnc",
+    coverImage: hokuCover,
+    images: [hoku1, hoku2, hoku3, hoku4],
+  },
+  {
+    id: "rubnjaci-uredjenje-prostora",
+    slug: "rubnjaci-uredjenje-prostora",
+    title: { en: "Custom Edge Trims", hr: "Rubnjaci za uređenje prostora" },
+    shortDescription: {
+      en: "Custom edge trims for interior design, bent, protected, painted and ready for installation.",
+      hr: "Rubnjaci za uređenje prostora po mjeri. Savijanje lima, zaštita, bojanje i spremno za ugradnju!",
+    },
+    description: {
+      en: "Custom edge trims for interior design, bent, protected, painted and ready for installation. We combine precision press brake work with finishing processes so each piece is installation-ready.",
+      hr: "Rubnjaci za uređenje prostora po mjeri. Savijanje lima, zaštita, bojanje i spremno za ugradnju!",
+    },
+    category: "press-brake",
+    coverImage: rubnjaciCover,
+    images: [rubnjaci1, rubnjaci2, rubnjaci3, rubnjaci4, rubnjaci5],
   },
   {
     id: "custom-steel-table",

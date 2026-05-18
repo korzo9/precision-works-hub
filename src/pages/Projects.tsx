@@ -15,10 +15,8 @@ const Projects = () => {
 
   const filters: { key: FilterCategory; label: { en: string; hr: string } }[] = [
     { key: "all", label: { en: "All", hr: "Sve" } },
-    { key: "cnc", label: categoryLabels.cnc },
-    { key: "welding", label: categoryLabels.welding },
-    { key: "construction", label: categoryLabels.construction },
-    { key: "restoration", label: categoryLabels.restoration },
+    // build remaining filters from categoryLabels so new categories appear automatically
+    ...Object.entries(categoryLabels).map(([key, label]) => ({ key: key as Project["category"], label })),
   ];
 
   const filtered = filter === "all" ? projects : projects.filter((p) => p.category === filter);
