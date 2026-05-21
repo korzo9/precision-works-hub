@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTASection from "@/components/CTASection";
@@ -135,6 +136,7 @@ const Services = () => {
 
   return (
     <Layout>
+      <SEO path="/services" title={{ en: "Services — CNC, Laser Welding & Metal Fabrication | Korzo Sisak", hr: "Usluge — CNC, lasersko zavarivanje i obrada metala | Korzo Sisak" }} description={{ en: "CNC plasma cutting, laser welding, laser cleaning, press brake bending, tube bending, machining and custom metal constructions in Sisak.", hr: "CNC plazma rezanje, lasersko zavarivanje, lasersko čišćenje, savijanje na presi, savijanje cijevi, strojna obrada i metalne konstrukcije u Sisku." }} />
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader
