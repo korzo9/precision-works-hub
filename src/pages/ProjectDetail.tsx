@@ -29,6 +29,11 @@ const ProjectDetail = () => {
 
   return (
     <Layout>
+      <SEO
+        path={`/projects/${project.slug}`}
+        title={{ en: `${project.title.en} — Korzo Sisak`, hr: `${project.title.hr} — Korzo Sisak` }}
+        description={{ en: project.description.en.slice(0, 155), hr: project.description.hr.slice(0, 155) }}
+      />
       <section className="pt-32 pb-16 bg-background">
         <div className="container-custom px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
           {/* Back link */}
