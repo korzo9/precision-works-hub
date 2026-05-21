@@ -4,6 +4,7 @@ import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTASection from "@/components/CTASection";
 import { useLang } from "@/context/LangContext";
+import { projects, categoryLabels } from "@/data/projects";
 import cncCutting from "@/assets/cnc-cutting.jpg";
 import laserWelding from "@/assets/laser-welding.jpg";
 import laserCleaning from "@/assets/laser-cleaning.jpg";
@@ -14,32 +15,90 @@ import restoration from "@/assets/restoration.jpg";
 import workshop from "@/assets/workshop.jpg";
 import heroBg from "@/assets/hero-bg1.jpeg";
 import cadDesign from "@/assets/cad-design.jpg";
+import konstrukcijaBolnica from "@/assets/konstrukcija_bolnica.jpg";
+import solarCvijet from "@/assets/solar_cvijet.jpg";
+import stepenice2 from "@/assets/project_assets/stepenice/stepenice (2).jpg";
+import stepenice4 from "@/assets/project_assets/stepenice/stepenice (4).jpg";
+import stepenice8 from "@/assets/project_assets/stepenice/stepenice (8).jpg";
+import namjestaj2 from "@/assets/project_assets/namjestaj/namjestaj (2).jpg";
+import namjestaj5 from "@/assets/project_assets/namjestaj/namjestaj (5).jpg";
+import ograda2 from "@/assets/project_assets/ograda/ograda (2).jpg";
+import ograda4 from "@/assets/project_assets/ograda/ograda (4).jpg";
 
 const Gallery = () => {
   const { t } = useLang();
   const [filter, setFilter] = useState<string>("All");
 
+  const categoryOrder = ["construction", "design", "restoration", "press-brake", "cnc"] as const;
+
   const categories = [
-    t("All", "Sve"),
-    t("CNC Cutting", "CNC rezanje"),
-    t("Welding", "Zavarivanje"),
-    t("Constructions", "Konstrukcije"),
-    t("Restoration", "Restauracije"),
+    { key: "All", label: t("All", "Sve") },
+    ...categoryOrder.map((key) => ({
+      key,
+      label: t(categoryLabels[key].en, categoryLabels[key].hr),
+    })),
   ];
 
-  const categoryKeys = ["All", "CNC Cutting", "Welding", "Constructions", "Restoration"];
-
   const images = [
-    { src: cncCutting, categoryKey: "CNC Cutting", alt: t("CNC plasma cutting", "CNC plazma rezanje") },
-    { src: laserWelding, categoryKey: "Welding", alt: t("Laser welding", "Lasersko zavarivanje") },
-    { src: metalConstructions, categoryKey: "Constructions", alt: t("Metal gate construction", "Izrada metalnih kapija") },
-    { src: restoration, categoryKey: "Restoration", alt: t("Metal restoration", "Restauracija metala") },
-    { src: heroBg, categoryKey: "Restoration", alt: t("Metal restoration", "Restauracija metala") },
-    { src: pressBrake, categoryKey: "Constructions", alt: t("Press brake bending", "Savijanje na presi") },
-    { src: tubeBending, categoryKey: "Constructions", alt: t("Tube bending", "Savijanje cijevi") },
-    { src: laserCleaning, categoryKey: "Restoration", alt: t("Laser cleaning", "Lasersko čišćenje") },
-    { src: workshop, categoryKey: "CNC Cutting", alt: t("Workshop overview", "Pregled radionice") },
-    { src: cadDesign, categoryKey: "Constructions", alt: t("CAD design", "CAD dizajn") },
+    { src: cncCutting, categoryKey: "cnc", alt: t("CNC plasma cutting", "CNC plazma rezanje"), description: t("Metal cutting detail", "Detalj rezanja metala") },
+    { src: laserWelding, categoryKey: "welding", alt: t("Laser welding", "Lasersko zavarivanje"), description: t("Precision welding", "Precizno zavarivanje") },
+    { src: metalConstructions, categoryKey: "construction", alt: t("Metal gate construction", "Izrada metalnih kapija"), description: t("Gate construction", "Izrada kapije") },
+    { src: pressBrake, categoryKey: "press-brake", alt: t("Press brake bending", "Savijanje na presi"), description: t("Sheet metal bending", "Savijanje lima") },
+    { src: tubeBending, categoryKey: "construction", alt: t("Tube bending", "Savijanje cijevi"), description: t("Tube bending detail", "Detalj savijanja cijevi") },
+    { src: restoration, categoryKey: "restoration", alt: t("Metal restoration", "Restauracija metala"), description: t("Restoration work", "Radovi restauracije") },
+    { src: heroBg, categoryKey: "restoration", alt: t("Metal restoration", "Restauracija metala"), description: t("Restoration project", "Projekt restauracije") },
+    { src: workshop, categoryKey: "cnc", alt: t("Workshop overview", "Pregled radionice"), description: t("Workshop environment", "Radni ambijent") },
+    { src: cadDesign, categoryKey: "construction", alt: t("CAD design", "CAD dizajn"), description: t("Project design", "Projektni dizajn") },
+    { src: konstrukcijaBolnica, categoryKey: "construction", alt: t("Construction fabrication", "Izrada konstrukcija"), description: t("Hospital construction", "Izrada bolničke konstrukcije") },
+    { src: solarCvijet, categoryKey: "construction", alt: t("Interesting construction fabrication", "Izrada zanimljivih konstrukcija"), description: t("Solar construction", "Izrada solarne konstrukcije") },
+    ...projects.map((project) => ({
+      src: project.coverImage,
+      categoryKey: project.category,
+      alt: t(project.title.en, project.title.hr),
+      description: t(project.shortDescription.en, project.shortDescription.hr),
+    })),
+    {
+      src: stepenice2,
+      categoryKey: "construction",
+      alt: t("Steel stair detail", "Detalj čeličnih stepenica"),
+      description: t("Extra stair detail", "Dodatni detalj stepenica"),
+    },
+    {
+      src: stepenice4,
+      categoryKey: "construction",
+      alt: t("Staircase assembly", "Montiranje stepenica"),
+      description: t("Another strong stair image", "Još jedna snažna slika stepenica"),
+    },
+    {
+      src: stepenice8,
+      categoryKey: "construction",
+      alt: t("Modern stair profile", "Moderan profil stepenica"),
+      description: t("Beautiful stair structure", "Lijepa struktura stepenica"),
+    },
+    {
+      src: namjestaj2,
+      categoryKey: "design",
+      alt: t("Custom furniture detail", "Detalj prilagođenog namještaja"),
+      description: t("Simple furniture design", "Jednostavan namještaj"),
+    },
+    {
+      src: namjestaj5,
+      categoryKey: "design",
+      alt: t("Designer furniture finish", "Dizajnerski završetak namještaja"),
+      description: t("Furniture craftsmanship", "Obrtništvo namještaja"),
+    },
+    {
+      src: ograda2,
+      categoryKey: "design",
+      alt: t("Fence detail", "Detalj ograde"),
+      description: t("Clean fence detail", "Čist detalj ograde"),
+    },
+    {
+      src: ograda4,
+      categoryKey: "design",
+      alt: t("Garden fence style", "Stil vrtne ograde"),
+      description: t("Elegant fence style", "Elegantni stil ograde"),
+    },
   ];
 
   const filtered = filter === "All" ? images : images.filter((img) => img.categoryKey === filter);
@@ -55,17 +114,17 @@ const Gallery = () => {
           />
 
           <div className="flex flex-wrap justify-center gap-2 mb-10">
-            {categoryKeys.map((catKey, i) => (
+            {categories.map((category) => (
               <button
-                key={catKey}
-                onClick={() => setFilter(catKey)}
+                key={category.key}
+                onClick={() => setFilter(category.key)}
                 className={`px-5 py-2 font-heading uppercase text-xs tracking-wider transition-all duration-200 ${
-                  filter === catKey
+                  filter === category.key
                     ? "bg-primary text-primary-foreground"
                     : "bg-secondary text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {categories[i]}
+                {category.label}
               </button>
             ))}
           </div>
@@ -76,8 +135,9 @@ const Gallery = () => {
                 <div className="overflow-hidden rounded-sm group cursor-pointer card-industrial">
                   <img src={img.src} alt={img.alt} loading="lazy" width={800} height={600} className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110" />
                   <div className="p-3">
-                    <span className="text-xs font-heading uppercase tracking-wider text-primary">{categories[categoryKeys.indexOf(img.categoryKey)]}</span>
-                    <p className="text-sm text-muted-foreground mt-1">{img.alt}</p>
+                    <span className="text-xs font-heading uppercase tracking-wider text-primary">{t(categoryLabels[img.categoryKey].en, categoryLabels[img.categoryKey].hr)}</span>
+                    <p className="text-sm font-semibold mt-1">{img.alt}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{img.description}</p>
                   </div>
                 </div>
               </AnimatedSection>

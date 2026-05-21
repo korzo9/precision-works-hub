@@ -69,6 +69,32 @@ import namjestaj9 from "@/assets/project_assets/namjestaj/namjestaj (9).jpg";
 import namjestaj10 from "@/assets/project_assets/namjestaj/namjestaj (10).jpg";
 import namjestaj11 from "@/assets/project_assets/namjestaj/namjestaj (11).jpg";
 
+// Sisak assets
+import sisakCover from "@/assets/project_assets/sisak/sisak (1).jpg";
+import sisak1 from "@/assets/project_assets/sisak/sisak (1).jpg";
+import sisak2 from "@/assets/project_assets/sisak/sisak (2).jpg";
+import sisak3 from "@/assets/project_assets/sisak/sisak (3).jpg";
+import sisak4 from "@/assets/project_assets/sisak/sisak (4).jpg";
+import sisak5 from "@/assets/project_assets/sisak/sisak (5).jpg";
+import sisak6 from "@/assets/project_assets/sisak/sisak (6).jpg";
+import sisak7 from "@/assets/project_assets/sisak/sisak (7).jpg";
+
+// Ograda assets
+import ogradaCover from "@/assets/project_assets/ograda/ograda (6).jpg";
+import ograda1 from "@/assets/project_assets/ograda/ograda (1).jpg";
+import ograda2 from "@/assets/project_assets/ograda/ograda (2).jpg";
+import ograda3 from "@/assets/project_assets/ograda/ograda (3).jpg";
+import ograda4 from "@/assets/project_assets/ograda/ograda (4).jpg";
+import ograda5 from "@/assets/project_assets/ograda/ograda (5).jpg";
+import ograda6 from "@/assets/project_assets/ograda/ograda (6).jpg";
+import solarDrvoCover from "@/assets/project_assets/solar_drvo/solar_drvo (2).jpg";
+import solarDrvo1 from "@/assets/project_assets/solar_drvo/solar_drvo (1).jpg";
+import solarDrvo2 from "@/assets/project_assets/solar_drvo/solar_drvo (2).jpg";
+import solarDrvo3 from "@/assets/project_assets/solar_drvo/solar_drvo (3).jpg";
+import solarDrvo4 from "@/assets/project_assets/solar_drvo/solar_drvo (4).jpg";
+import solarDrvo5 from "@/assets/project_assets/solar_drvo/solar_drvo (5).jpg";
+import solarDrvo6 from "@/assets/project_assets/solar_drvo/solar_drvo (6).jpg";
+
 
 export interface ProjectMedia {
   type?: "image" | "video";
@@ -82,7 +108,7 @@ export interface Project {
   title: { en: string; hr: string };
   description: { en: string; hr: string };
   shortDescription: { en: string; hr: string };
-  category: "cnc" | "welding" | "construction" | "restoration" | "press-brake" | "furniture-design";
+  category: "cnc" | "welding" | "construction" | "restoration" | "press-brake" | "design";
   coverImage: string;
   images: string[];
   videos?: ProjectMedia[];
@@ -96,7 +122,7 @@ export const categoryLabels: Record<Project["category"], { en: string; hr: strin
   construction: { en: "Construction", hr: "Konstrukcije" },
   restoration: { en: "Restoration", hr: "Restauracije" },
   "press-brake": { en: "Press Brake", hr: "Savijanje lima" },
-  "furniture-design": { en: "Furniture Design", hr: "Dizajn namještaja" },
+  design: { en: "Design", hr: "Dizajn" },
 };
 
 const placeholder = "/placeholder.svg";
@@ -172,20 +198,64 @@ export const projects: Project[] = [
     images: [vrata1, vrata2, vrata3, vrata4, vrata5, vrata6, vrata7, vrata8, vrata9],
   },
   {
-    id: "hoku-logo-sign",
-    slug: "hoku-logo-natpis",
-    title: { en: "Logo and Sign", hr: "Logo i natpis" },
+    id: "custom-metal-furniture",
+    slug: "custom-metal-furniture-collection",
+    title: { en: "Custom Metal Furniture Collection", hr: "Kolekcija prilagođenog metalnog namještaja" },
     shortDescription: {
-      en: "Logo and sign production for the Dutch House using craftsmanship and modern technology.",
-      hr: "Izradili smo logo i natpis na Holandskoj kući, kombinacijom vještina ručnog rada i moderne tehnologije.",
+      en: "Unique handcrafted furniture collection combining steel, wood and glass elements.",
+      hr: "Jedinstvena ručno rađena kolekcija namještaja koja spaja čelik, drvo i staklo.",
     },
     description: {
-      en: "We created the logo and sign for the Dutch House by combining skilled handwork with modern technology. From the workshop perspective, we achieved an excellent blend of craftsmanship and precision.",
-      hr: "Izradili smo logo i natpis na Holandskoj kući, kombinacijom vještina ručnog rada i moderne tehnologije. Iz radioničke perspektive dobili smo odličan spoj!",
+      en: "Unique handcrafted furniture collection combining steel, wood and glass elements. From minimalist stools and shelving units to designer tables and custom interior pieces, every product is made with precision metal craftsmanship and modern industrial aesthetics.",
+      hr: "Jedinstvena ručno rađena kolekcija namještaja koja spaja čelik, drvo i staklo. Od minimalističkih stolaca i polica do dizajnerskih stolova i prilagođenih unutarnjih komada, svaki proizvod izrađen je preciznim metalnim zanatom i modernom industrijskom estetikom.",
     },
-    category: "cnc",
-    coverImage: hokuCover,
-    images: [hoku1, hoku2, hoku3, hoku4],
+    category: "design",
+    coverImage: namjestajCover,
+    images: [
+      namjestaj1,
+      namjestaj2,
+      namjestaj3,
+      namjestaj4,
+      namjestaj5,
+      namjestaj6,
+      namjestaj7,
+      namjestaj8,
+      namjestaj9,
+      namjestaj10,
+      namjestaj11,
+    ],
+  },
+  {
+    id: "ograda-modern-design",
+    slug: "ograda-modern-design",
+    title: { en: "Elegant Garden Fence", hr: "Elegantna ograda" },
+    shortDescription: {
+      en: "A stylish, handcrafted fence that brings warmth and modern flair to any space.",
+      hr: "U trendu, tradicionalnim radom, stvaramo elegantne i jednostavne unikate poput ove ograde koja unese toplinu i moderan štih u prostor.",
+    },
+    description: {
+      en: "In trend, with traditional craftsmanship, we create elegant and simple uniques like this fence that brings warmth and a modern touch to the space and delights the owner! We will adapt to you in the production of metal products.",
+      hr: "U trendu, tradicionalnim radom, stvaramo elegantne i jednostavne unikate poput ove ograde koja unese toplinu i moderan štih u prostor i oduševi vlasnika! Tako ćemo se prilagoditi i vama u izradi proizvoda od metala!",
+    },
+    category: "design",
+    coverImage: ogradaCover,
+    images: [ograda1, ograda2, ograda3, ograda4, ograda5, ograda6],
+  },
+  {
+    id: "sisak-dekorativna-slova",
+    slug: "sisak-dekorativna-slova",
+    title: { en: "Decorative Letters of Our City", hr: "Dekorativna slova našeg grada" },
+    shortDescription: {
+      en: "Creating decorative letters that promote our city, tradition, and heritage.",
+      hr: "Nastajanje dekorativnih slova, našeg grada! Promoviraju tako grad, tradiciju i ono što baštinimo a čine lijepu razglednicu.",
+    },
+    description: {
+      en: "Creating decorative letters to represent our city. They promote the town, tradition and heritage while forming a beautiful postcard.",
+      hr: "Nastajanje dekorativnih slova, našeg grada! Promoviraju tako grad, tradiciju i ono što baštinimo a čine lijepu razglednicu.",
+    },
+    category: "design",
+    coverImage: sisakCover,
+    images: [sisak1, sisak2, sisak3, sisak4, sisak5, sisak6, sisak7],
   },
   {
     id: "rubnjaci-uredjenje-prostora",
@@ -204,31 +274,35 @@ export const projects: Project[] = [
     images: [rubnjaci1, rubnjaci2, rubnjaci3, rubnjaci4, rubnjaci5],
   },
   {
-    id: "custom-metal-furniture",
-    slug: "custom-metal-furniture-collection",
-    title: { en: "Custom Metal Furniture Collection", hr: "Kolekcija prilagođenog metalnog namještaja" },
+    id: "hoku-logo-sign",
+    slug: "hoku-logo-natpis",
+    title: { en: "Logo and Sign", hr: "Logo i natpis" },
     shortDescription: {
-      en: "Unique handcrafted furniture collection combining steel, wood and glass elements.",
-      hr: "Jedinstvena ručno rađena kolekcija namještaja koja spaja čelik, drvo i staklo.",
+      en: "Logo and sign production for the Dutch House using craftsmanship and modern technology.",
+      hr: "Izradili smo logo i natpis na Holandskoj kući, kombinacijom vještina ručnog rada i moderne tehnologije.",
     },
     description: {
-      en: "Unique handcrafted furniture collection combining steel, wood and glass elements. From minimalist stools and shelving units to designer tables and custom interior pieces, every product is made with precision metal craftsmanship and modern industrial aesthetics.",
-      hr: "Jedinstvena ručno rađena kolekcija namještaja koja spaja čelik, drvo i staklo. Od minimalističkih stolaca i polica do dizajnerskih stolova i prilagođenih unutarnjih komada, svaki proizvod izrađen je preciznim metalnim zanatom i modernom industrijskom estetikom.",
+      en: "We created the logo and sign for the Dutch House by combining skilled handwork with modern technology. From the workshop perspective, we achieved an excellent blend of craftsmanship and precision.",
+      hr: "Izradili smo logo i natpis na Holandskoj kući, kombinacijom vještina ručnog rada i moderne tehnologije. Iz radioničke perspektive dobili smo odličan spoj!",
     },
-    category: "furniture-design",
-    coverImage: namjestajCover,
-    images: [
-      namjestaj1,
-      namjestaj2,
-      namjestaj3,
-      namjestaj4,
-      namjestaj5,
-      namjestaj6,
-      namjestaj7,
-      namjestaj8,
-      namjestaj9,
-      namjestaj10,
-      namjestaj11,
-    ],
+    category: "cnc",
+    coverImage: hokuCover,
+    images: [hoku1, hoku2, hoku3, hoku4],
+  },
+  {
+    id: "solar-drvo",
+    slug: "izrada-solarnog-drva",
+    title: { en: "Solar Tree Construction", hr: "Izrada solarnog drveta" },
+    shortDescription: {
+      en: "Construction of a solar tree at BP INA Sisak in cooperation with Tehnička škola Sisak.",
+      hr: "Izrada Solarnog drveta na BP INA Sisak, Zagrebačka cesta, prema projektu i u suradnji s Tehničkom školom Sisak.",
+    },
+    description: {
+      en: "Construction of a solar tree at BP INA Sisak, Zagrebačka cesta, according to the design and in cooperation with Tehnička škola Sisak.",
+      hr: "Izrada Solarnog drveta na BP INA Sisak, Zagrebačka cesta, prema projektu i u suradnji s Tehničkom školom Sisak.",
+    },
+    category: "construction",
+    coverImage: solarDrvoCover,
+    images: [solarDrvo1, solarDrvo2, solarDrvo3, solarDrvo4, solarDrvo5, solarDrvo6],
   },
 ];

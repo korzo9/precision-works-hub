@@ -53,11 +53,11 @@ const ProjectDetail = () => {
 
           {/* Cover image */}
           <AnimatedSection delay={0.15}>
-            <div className="rounded-lg overflow-hidden bg-muted aspect-[16/10] mb-10">
+            <div className="rounded-lg overflow-hidden bg-muted mb-10 mx-auto max-w-[800px]">
               <img
                 src={project.coverImage}
                 alt={project.title[lang]}
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-contain"
               />
             </div>
           </AnimatedSection>
