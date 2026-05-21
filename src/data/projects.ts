@@ -55,6 +55,20 @@ import rubnjaci3 from "@/assets/project_assets/rubnjaci/rubnjaci (3).jpg";
 import rubnjaci4 from "@/assets/project_assets/rubnjaci/rubnjaci (4).jpg";
 import rubnjaci5 from "@/assets/project_assets/rubnjaci/rubnjaci (5).jpg";
 
+// Namještaj assets
+import namjestajCover from "@/assets/project_assets/namjestaj/namjestaj (4).jpg";
+import namjestaj1 from "@/assets/project_assets/namjestaj/namjestaj (1).jpg";
+import namjestaj2 from "@/assets/project_assets/namjestaj/namjestaj (2).jpg";
+import namjestaj3 from "@/assets/project_assets/namjestaj/namjestaj (3).jpg";
+import namjestaj4 from "@/assets/project_assets/namjestaj/namjestaj (4).jpg";
+import namjestaj5 from "@/assets/project_assets/namjestaj/namjestaj (5).jpg";
+import namjestaj6 from "@/assets/project_assets/namjestaj/namjestaj (6).jpg";
+import namjestaj7 from "@/assets/project_assets/namjestaj/namjestaj (7).jpg";
+import namjestaj8 from "@/assets/project_assets/namjestaj/namjestaj (8).jpg";
+import namjestaj9 from "@/assets/project_assets/namjestaj/namjestaj (9).jpg";
+import namjestaj10 from "@/assets/project_assets/namjestaj/namjestaj (10).jpg";
+import namjestaj11 from "@/assets/project_assets/namjestaj/namjestaj (11).jpg";
+
 
 export interface ProjectMedia {
   type?: "image" | "video";
@@ -68,7 +82,7 @@ export interface Project {
   title: { en: string; hr: string };
   description: { en: string; hr: string };
   shortDescription: { en: string; hr: string };
-  category: "cnc" | "welding" | "construction" | "restoration" | "press-brake";
+  category: "cnc" | "welding" | "construction" | "restoration" | "press-brake" | "furniture-design";
   coverImage: string;
   images: string[];
   videos?: ProjectMedia[];
@@ -82,6 +96,7 @@ export const categoryLabels: Record<Project["category"], { en: string; hr: strin
   construction: { en: "Construction", hr: "Konstrukcije" },
   restoration: { en: "Restoration", hr: "Restauracije" },
   "press-brake": { en: "Press Brake", hr: "Savijanje lima" },
+  "furniture-design": { en: "Furniture Design", hr: "Dizajn namještaja" },
 };
 
 const placeholder = "/placeholder.svg";
@@ -189,19 +204,31 @@ export const projects: Project[] = [
     images: [rubnjaci1, rubnjaci2, rubnjaci3, rubnjaci4, rubnjaci5],
   },
   {
-    id: "custom-steel-table",
-    slug: "custom-steel-table",
-    title: { en: "Custom Steel Table", hr: "Čelični stol po mjeri" },
+    id: "custom-metal-furniture",
+    slug: "custom-metal-furniture-collection",
+    title: { en: "Custom Metal Furniture Collection", hr: "Kolekcija prilagođenog metalnog namještaja" },
     shortDescription: {
-      en: "Industrial-style steel table with CNC-cut decorative base.",
-      hr: "Čelični stol industrijskog stila s CNC rezanom dekorativnom bazom.",
+      en: "Unique handcrafted furniture collection combining steel, wood and glass elements.",
+      hr: "Jedinstvena ručno rađena kolekcija namještaja koja spaja čelik, drvo i staklo.",
     },
     description: {
-      en: "A bespoke industrial-style dining table with a CNC plasma-cut decorative steel base and a solid wood top. The base features an intricate geometric pattern, precision-welded and finished with a matte black powder coat.",
-      hr: "Blagovaonički stol industrijskog stila po mjeri s CNC plazma rezanom dekorativnom čeličnom bazom i masivnom drvenom pločom. Baza ima složen geometrijski uzorak, precizno zavarena i završno obrađena mat crnom plastifikacijom.",
+      en: "Unique handcrafted furniture collection combining steel, wood and glass elements. From minimalist stools and shelving units to designer tables and custom interior pieces, every product is made with precision metal craftsmanship and modern industrial aesthetics.",
+      hr: "Jedinstvena ručno rađena kolekcija namještaja koja spaja čelik, drvo i staklo. Od minimalističkih stolaca i polica do dizajnerskih stolova i prilagođenih unutarnjih komada, svaki proizvod izrađen je preciznim metalnim zanatom i modernom industrijskom estetikom.",
     },
-    category: "cnc",
-    coverImage: placeholder,
-    images: [placeholder, placeholder],
+    category: "furniture-design",
+    coverImage: namjestajCover,
+    images: [
+      namjestaj1,
+      namjestaj2,
+      namjestaj3,
+      namjestaj4,
+      namjestaj5,
+      namjestaj6,
+      namjestaj7,
+      namjestaj8,
+      namjestaj9,
+      namjestaj10,
+      namjestaj11,
+    ],
   },
 ];
