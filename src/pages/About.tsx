@@ -1,5 +1,6 @@
 import { Shield, Clock, Wrench, Award } from "lucide-react";
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTASection from "@/components/CTASection";
@@ -18,6 +19,7 @@ const About = () => {
 
   return (
     <Layout>
+      <SEO path="/about" title={{ en: "About Korzo Sisak — Metal Fabrication Since 1988", hr: "O nama — Korzo Sisak, obrada metala od 1988." }} description={{ en: "35+ years of metal fabrication in Sisak, Croatia. Modern CNC and laser equipment with experienced craftsmen delivering quality from idea to product.", hr: "Više od 35 godina obrade metala u Sisku. Moderna CNC i laserska oprema te iskusni majstori — kvaliteta od ideje do proizvoda." }} />
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader

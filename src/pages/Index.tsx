@@ -5,6 +5,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
 import CTASection from "@/components/CTASection";
 import { useLang } from "@/context/LangContext";
+import SEO from "@/components/SEO";
 import heroBg from "@/assets/hero-bg1.jpeg";
 import logo from "@/assets/logo.png";
 import cncCutting from "@/assets/cnc-cutting.jpg";
@@ -33,10 +34,15 @@ const Index = () => {
 
   return (
     <Layout>
+      <SEO
+        path="/"
+        title={{ en: "Korzo Sisak — Metal Fabrication & CNC Services Since 1988", hr: "Korzo Sisak — Obrada metala i CNC usluge od 1988." }}
+        description={{ en: "Precision metal fabrication, CNC plasma cutting, laser welding and custom metal constructions in Sisak, Croatia. From idea to finished product since 1988.", hr: "Precizna obrada metala, CNC plazma rezanje, lasersko zavarivanje i metalne konstrukcije u Sisku. Od ideje do gotovog proizvoda od 1988." }}
+      />
       {/* Hero */}
       <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <img src={heroBg} alt="Metal fabrication workshop" width={1920} height={1080} className="w-full h-full object-cover" />
+          <img src={heroBg} alt="Metal fabrication workshop" width={1920} height={1080} fetchPriority="high" decoding="async" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-background/70" />
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
         </div>

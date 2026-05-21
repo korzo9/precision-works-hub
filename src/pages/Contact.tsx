@@ -2,6 +2,7 @@ import { useState, FormEvent } from "react";
 import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
 import { z } from "zod";
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
 import { useLang } from "@/context/LangContext";
@@ -64,6 +65,7 @@ const Contact = () => {
 
   return (
     <Layout>
+      <SEO path="/contact" title={{ en: "Contact Korzo Sisak — Request a Quote", hr: "Kontakt — Korzo Sisak, zatraži ponudu" }} description={{ en: "Get in touch with Obrada metala Korzo Sisak. Phone +385 98 389 819, info@korzo.hr, Kutinska 189, Novo Selo Palanječko, Sisak.", hr: "Kontaktirajte Obradu metala Korzo Sisak. Telefon +385 98 389 819, info@korzo.hr, Kutinska 189, Novo Selo Palanječko, Sisak." }} />
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader

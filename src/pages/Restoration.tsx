@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTASection from "@/components/CTASection";
@@ -19,6 +20,7 @@ const Restoration = () => {
 
   return (
     <Layout>
+      <SEO path="/restoration" title={{ en: "Metal Restoration — Korzo Sisak", hr: "Restauracija metala — Korzo Sisak" }} description={{ en: "Restoration of historical and decorative metalwork: rust removal, repair, finishing and protective coatings by Korzo Sisak.", hr: "Restauracija povijesnih i dekorativnih metalnih elemenata: uklanjanje hrđe, popravak, završna obrada i zaštitni premazi." }} />
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader

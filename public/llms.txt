@@ -1,0 +1,14 @@
+# Obrada metala Korzo Sisak
+
+> Metal fabrication company in Sisak, Croatia since 1988. CNC plasma cutting, laser welding, laser cleaning, press brake & tube bending, metal constructions, restoration.
+
+## Pages
+
+- [Home](/): Overview of services and capabilities.
+- [Services](/services): CNC plasma cutting, laser welding, laser cleaning, bending, machining, metal constructions.
+- [From Idea to Product](/idea-to-product): End-to-end workflow from concept through delivery.
+- [Restoration](/restoration): Restoration of metal objects and craftsmanship work.
+- [Gallery](/gallery): Photos of workshop, machines, and completed work.
+- [Projects](/projects): Featured completed projects with detail pages.
+- [About](/about): Company history since 1988, equipment, and team.
+- [Contact](/contact): Address (Kutinska 189, Novo Selo Palanječko, Sisak), phone, email, contact form.

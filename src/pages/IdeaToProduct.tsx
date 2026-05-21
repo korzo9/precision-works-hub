@@ -1,5 +1,6 @@
 import { Lightbulb, PenTool, Cog, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTASection from "@/components/CTASection";
@@ -46,6 +47,7 @@ const IdeaToProduct = () => {
 
   return (
     <Layout>
+      <SEO path="/idea-to-product" title={{ en: "From Idea to Product — Korzo Sisak", hr: "Od ideje do realizacije — Korzo Sisak" }} description={{ en: "Our complete workflow from concept and CAD design to precision production and delivery of custom metal products.", hr: "Naš kompletni proces od koncepta i CAD dizajna do precizne proizvodnje i isporuke prilagođenih metalnih proizvoda." }} />
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import SectionHeader from "@/components/SectionHeader";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTASection from "@/components/CTASection";
@@ -105,6 +106,7 @@ const Gallery = () => {
 
   return (
     <Layout>
+      <SEO path="/gallery" title={{ en: "Gallery — Korzo Sisak Metal Fabrication Work", hr: "Galerija — radovi obrade metala Korzo Sisak" }} description={{ en: "Photos of CNC plasma cutting, laser welding, bending, restoration and finished metal constructions from our Sisak workshop.", hr: "Fotografije CNC plazma rezanja, laserskog zavarivanja, savijanja, restauracija i gotovih metalnih konstrukcija iz naše radionice u Sisku." }} />
       <section className="section-padding">
         <div className="container-custom">
           <SectionHeader

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
+import SEO from "@/components/SEO";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeader from "@/components/SectionHeader";
 import ProjectCard from "@/components/ProjectCard";
@@ -23,6 +24,7 @@ const Projects = () => {
 
   return (
     <Layout>
+      <SEO path="/projects" title={{ en: "Projects & References — Korzo Sisak", hr: "Projekti i reference — Korzo Sisak" }} description={{ en: "Completed metal fabrication projects: CNC cutting, welding, constructions and restoration work delivered by Korzo Sisak.", hr: "Završeni projekti obrade metala: CNC rezanje, zavarivanje, konstrukcije i restauracije u izvedbi Korzo Sisak." }} />
       <section className="pt-32 pb-16 bg-background">
         <div className="container-custom px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
