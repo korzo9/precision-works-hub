@@ -48,12 +48,12 @@ const Services = () => {
     {
       title: t("CNC Plasma Cutting", "CNC plazma rezanje"),
       description: t(
-        "Our CNC plasma cutting system delivers precision cuts on a wide range of metals. Computer-controlled accuracy ensures consistent, repeatable results for both simple and complex shapes.",
-        "Naš CNC plazma sustav za rezanje pruža precizne rezove na širokom rasponu metala. Računalno upravljana točnost osigurava dosljedne, ponovljive rezultate za jednostavne i složene oblike."
+        "Our CNC plasma cutting system delivers precision cuts for various types of metals. Computer-controlled accuracy ensures consistent, repeatable results for both simple and complex shapes.",
+        "Naš CNC plazma sustav za rezanje pruža precizne rezove za razne vrste metala. Računalno upravljana točnost osigurava dosljedne, ponovljive rezultate za jednostavne i složene oblike."
       ),
       bullets: t(
-        "Steel, stainless steel, and aluminum cutting|Complex shapes and patterns|High precision with minimal heat distortion|Both small and large-scale production",
-        "Rezanje čelika, nehrđajućeg čelika i aluminija|Složeni oblici i uzorci|Visoka preciznost s minimalnom toplinskom deformacijom|Mala i velika serijska proizvodnja"
+        "Steel, stainless steel, and aluminum cutting|Complex shapes and patterns|High precision with minimal heat distortion|Smaller and larger production runs",
+        "Rezanje čelika, nehrđajućeg čelika i aluminija|Složeni oblici i uzorci|Visoka preciznost s minimalnom toplinskom deformacijom|Manja i veća serijska proizvodnja"
       ).split("|"),
       image: cncCutting,
     },
@@ -83,10 +83,10 @@ const Services = () => {
       image: laserCleaning,
     },
     {
-      title: t("Press Brake Bending", "Savijanje na presi"),
+      title: t("Press Brake Bending", "Savijanje na preši"),
       description: t(
         "Our press brake equipment handles precise sheet metal bending with consistent angle accuracy. From simple bends to complex multi-bend parts.",
-        "Naša oprema za savijanje na presi omogućuje precizno savijanje lima s dosljednom točnošću kutova. Od jednostavnih do složenih višestrukih savijanja."
+        "Naša oprema za savijanje na preši omogućuje precizno savijanje lima s dosljednom točnošću kutova. Od jednostavnih do složenih višestrukih savijanja."
       ),
       bullets: t(
         "Precision angle control|Multiple bend sequences|Various sheet thicknesses|Repeatable accuracy|Prototyping and production runs",
@@ -143,8 +143,8 @@ const Services = () => {
             label={t("What We Offer", "Što nudimo")}
             title={t("Our Services", "Naše usluge")}
             description={t(
-              "Comprehensive metal fabrication capabilities powered by modern technology and decades of experience",
-              "Sveobuhvatne mogućnosti obrade metala pokretane modernom tehnologijom i desetljećima iskustva"
+              "All metal fabrication services powered by modern technology and decades of experience",
+              "Sve usluge obrade metala pokretane modernom tehnologijom i desetljećima iskustva"
             )}
           />
           <div className="flex flex-col gap-20">

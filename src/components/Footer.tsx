@@ -26,7 +26,7 @@ const Footer = () => {
             <div className="flex flex-col gap-2 text-sm text-muted-foreground">
               <Link to="/services" className="hover:text-primary transition-colors">{t("CNC Plasma Cutting", "CNC plazma rezanje")}</Link>
               <Link to="/services" className="hover:text-primary transition-colors">{t("Laser Welding", "Lasersko zavarivanje")}</Link>
-              <Link to="/services" className="hover:text-primary transition-colors">{t("Press Brake Bending", "Savijanje na presi")}</Link>
+              <Link to="/services" className="hover:text-primary transition-colors">{t("Press Brake Bending", "Savijanje na preši")}</Link>
               <Link to="/services" className="hover:text-primary transition-colors">{t("Metal Constructions", "Metalne konstrukcije")}</Link>
             </div>
           </div>

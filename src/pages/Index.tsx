@@ -19,7 +19,7 @@ const Index = () => {
     { icon: Crosshair, title: t("CNC Plasma Cutting", "CNC plazma rezanje"), desc: t("Precision cutting of steel, stainless steel, and aluminum with computer-controlled accuracy.", "Precizno rezanje čelika, nehrđajućeg čelika i aluminija uz računalno upravljanu točnost.") },
     { icon: Zap, title: t("Laser Welding", "Lasersko zavarivanje"), desc: t("Clean, precise, and fast welding for demanding applications.", "Čisto, precizno i brzo zavarivanje za zahtjevne primjene.") },
     { icon: SprayCan, title: t("Laser Cleaning", "Lasersko čišćenje"), desc: t("Rust removal and surface preparation using advanced laser technology.", "Uklanjanje hrđe i priprema površine naprednom laserskom tehnologijom.") },
-    { icon: ArrowDownUp, title: t("Press Brake Bending", "Savijanje na presi"), desc: t("Sheet metal bending with precision angles and repeatable results.", "Savijanje lima s preciznim kutovima i ponovljivim rezultatima.") },
+    { icon: ArrowDownUp, title: t("Press Brake Bending", "Savijanje na preši"), desc: t("Sheet metal bending with precision angles and repeatable results.", "Savijanje lima s preciznim kutovima i ponovljivim rezultatima.") },
     { icon: CircleDot, title: t("Tube Bending", "Savijanje cijevi"), desc: t("Pipes, railings, and frames bent to exact specifications.", "Cijevi, ograde i okviri savijeni prema točnim specifikacijama.") },
     { icon: Fence, title: t("Metal Constructions", "Metalne konstrukcije"), desc: t("Custom fences, gates, structures, and stainless steel work.", "Prilagođene ograde, kapije, konstrukcije i inox radovi.") },
     { icon: Cog, title: t("Machining", "Strojna obrada"), desc: t("Cutting, grinding, surface preparation and finishing services.", "Rezanje, brušenje, priprema površine i završna obrada.") },
@@ -64,8 +64,8 @@ const Index = () => {
           <AnimatedSection delay={0.3}>
             <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto mb-10">
               {t(
-                "Precision, quality and complete solutions in metal processing — CNC cutting, welding & custom fabrication",
-                "Preciznost, kvaliteta i kompletna rješenja u obradi metala — CNC rezanje, zavarivanje i prilagođena izrada"
+                "Precision, quality and complete solutions in metal processing, custom-made and made-to-order fabrication",
+                "Preciznost, kvaliteta i kompletna rješenja u obradi metala, izrada po mjeri i narudžbi."
               )}
             </p>
           </AnimatedSection>
