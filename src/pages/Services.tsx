@@ -61,11 +61,11 @@ const Services = () => {
       title: t("Laser Welding", "Lasersko zavarivanje"),
       description: t(
         "Advanced laser welding technology provides cleaner, more precise welds with minimal distortion. Ideal for thin materials and applications requiring aesthetic finish.",
-        "Napredna tehnologija laserskog zavarivanja pruža čistije, preciznije zavare s minimalnom deformacijom. Idealno za tanke materijale i primjene koje zahtijevaju estetski završetak."
+        "Napredna tehnologija laserskog zavarivanja pruža čistije, preciznije zavare s minimalnom deformacijom. Idealno za materijale i primjene koje zahtijevaju estetski završetak."
       ),
       bullets: t(
         "Clean and precise welds|Minimal heat-affected zone|Fast processing speed|Suitable for thin and thick materials|Stainless steel, steel, and aluminum",
-        "Čisti i precizni zavari|Minimalna zona utjecaja topline|Brza obrada|Pogodno za tanke i debele materijale|Nehrđajući čelik, čelik i aluminij"
+        "Čisti i precizni zavari|Minimalna zona utjecaja topline|Brza obrada|Pogodno za tanje i debelje materijale|Nehrđajući čelik, čelik i aluminij"
       ).split("|"),
       image: laserWelding,
       reverse: true,
@@ -74,7 +74,7 @@ const Services = () => {
       title: t("Laser Cleaning", "Lasersko čišćenje"),
       description: t(
         "Eco-friendly laser cleaning removes rust, paint, and contaminants from metal surfaces without chemicals or abrasives. Perfect for surface preparation and restoration.",
-        "Ekološko lasersko čišćenje uklanja hrđu, boju i nečistoće s metalnih površina bez kemikalija ili abraziva. Savršeno za pripremu površine i restauraciju."
+        "Ekološko lasersko čišćenje uklanja hrđu, boju i nečistoće s metalnih površina bez kemikalija ili abraziva. Pogodno za pripremu površine i restauraciju."
       ),
       bullets: t(
         "Rust and oxide removal|Paint and coating stripping|Surface preparation for welding|No chemicals or abrasives needed|Preserves base material integrity",
@@ -90,7 +90,7 @@ const Services = () => {
       ),
       bullets: t(
         "Precision angle control|Multiple bend sequences|Various sheet thicknesses|Repeatable accuracy|Prototyping and production runs",
-        "Kontrola preciznog kuta|Višestruke sekvence savijanja|Razne debljine lima|Ponovljiva točnost|Izrada prototipova i serijska proizvodnja"
+        "Kontrola preciznog kuta|Višestruke faze savijanja|Razne debljine lima|Točnost ponovljivosti savijanja|Izrada prototipova i serijska proizvodnja"
       ).split("|"),
       image: pressBrake,
       reverse: true,
@@ -99,7 +99,7 @@ const Services = () => {
       title: t("Tube Bending", "Savijanje cijevi"),
       description: t(
         "Custom tube and pipe bending for railings, frames, furniture, and structural applications. We handle various diameters and materials.",
-        "Prilagođeno savijanje cijevi za ograde, okvire, namještaj i konstrukcijske primjene. Radimo s različitim promjerima i materijalima."
+        "Prilagođeno savijanje cijevi za ograde, okvire, namještaj i konstrukcijske primjene različitih promjera i materijala."
       ),
       bullets: t(
         "Round and square tube bending|Railings and handrails|Furniture frames|Structural elements|Custom radii and angles",
@@ -111,7 +111,7 @@ const Services = () => {
       title: t("Metal Constructions", "Metalne konstrukcije"),
       description: t(
         "Complete custom metal construction services including fences, gates, staircases, and structural steelwork. From design to installation.",
-        "Kompletne usluge prilagođene metalne konstrukcije uključujući ograde, kapije, stepeništa i čelične konstrukcije. Od dizajna do montaže."
+        "Kompletne usluge od dizajna do montaže prilagođenih metalnih konstrukcija kao što su: ograde, kapije, stepeništa i čelične konstrukcije."
       ),
       bullets: t(
         "Custom fences and gates|Staircase railings|Structural steelwork|Stainless steel fabrication|Installation service available",
@@ -124,7 +124,7 @@ const Services = () => {
       title: t("Machining", "Strojna obrada"),
       description: t(
         "Machining services including cutting, grinding, surface preparation and finishing.",
-        "Strojna obrada uključujući rezanje, brušenje, pripremu površine i završnu obradu."
+        "Strojna obrada rezanja, brušenja, bušenja, pripreme površine i završna obrada."
       ),
       bullets: t(
         "Cutting|Grinding|Surface preparation|Painting|Finishing",

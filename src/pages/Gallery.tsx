@@ -43,14 +43,13 @@ const Gallery = () => {
   const images = [
     { src: cncCutting, categoryKey: "cnc", alt: t("CNC plasma cutting", "CNC plazma rezanje"), description: t("Metal cutting detail", "Detalj rezanja metala") },
     { src: laserWelding, categoryKey: "welding", alt: t("Laser welding", "Lasersko zavarivanje"), description: t("Precision welding", "Precizno zavarivanje") },
-    { src: metalConstructions, categoryKey: "construction", alt: t("Metal gate construction", "Izrada metalnih kapija"), description: t("Gate construction", "Izrada kapije") },
+    { src: metalConstructions, categoryKey: "construction", alt: t("Metal gate construction", "Izrada metalne rešetke"), description: t("Gate construction", "Izrada konstrukcije") },
     { src: pressBrake, categoryKey: "press-brake", alt: t("Press brake bending", "Savijanje na preši"), description: t("Sheet metal bending", "Savijanje lima") },
     { src: tubeBending, categoryKey: "construction", alt: t("Tube bending", "Savijanje cijevi"), description: t("Tube bending detail", "Detalj savijanja cijevi") },
     { src: restoration, categoryKey: "restoration", alt: t("Metal restoration", "Restauracija metala"), description: t("Restoration work", "Radovi restauracije") },
     { src: heroBg, categoryKey: "restoration", alt: t("Metal restoration", "Restauracija metala"), description: t("Restoration project", "Projekt restauracije") },
-    { src: workshop, categoryKey: "cnc", alt: t("Workshop overview", "Pregled radionice"), description: t("Workshop environment", "Radni ambijent") },
-    { src: cadDesign, categoryKey: "construction", alt: t("CAD design", "CAD dizajn"), description: t("Project design", "Projektni dizajn") },
-    { src: konstrukcijaBolnica, categoryKey: "construction", alt: t("Construction fabrication", "Izrada konstrukcija"), description: t("Hospital construction", "Izrada bolničke konstrukcije") },
+   { src: cadDesign, categoryKey: "construction", alt: t("CAD design", "CAD dizajn"), description: t("Project design", "Projektni dizajn") },
+    { src: konstrukcijaBolnica, categoryKey: "construction", alt: t("Construction fabrication", "Izrada konstrukcija"), description: t("Hospital construction", "Izrada konstrukcije požarnog stepeništa") },
     { src: solarCvijet, categoryKey: "construction", alt: t("Interesting construction fabrication", "Izrada zanimljivih konstrukcija"), description: t("Solar construction", "Izrada solarne konstrukcije") },
     ...projects.map((project) => ({
       src: project.coverImage,
@@ -68,13 +67,13 @@ const Gallery = () => {
       src: stepenice4,
       categoryKey: "construction",
       alt: t("Staircase assembly", "Montiranje stepenica"),
-      description: t("Another strong stair image", "Još jedna snažna slika stepenica"),
+      description: t("Another strong stair image", "Izrada i montaža metalnih stepenica prilagođenih svakom prostoru"),
     },
     {
       src: stepenice8,
       categoryKey: "construction",
       alt: t("Modern stair profile", "Moderan profil stepenica"),
-      description: t("Beautiful stair structure", "Lijepa struktura stepenica"),
+      description: t("Beautiful stair structure", "Izrada i montaža metalnih stepenica prilagođenih svakom prostoru"),
     },
     {
       src: namjestaj2,
@@ -85,8 +84,8 @@ const Gallery = () => {
     {
       src: namjestaj5,
       categoryKey: "design",
-      alt: t("Designer furniture finish", "Dizajnerski završetak namještaja"),
-      description: t("Furniture craftsmanship", "Obrtništvo namještaja"),
+      alt: t("Designer furniture finish", "Dizajn namještaja"),
+      description: t("Furniture craftsmanship", "Izrada namještaja"),
     },
     {
       src: ograda2,
@@ -97,7 +96,7 @@ const Gallery = () => {
     {
       src: ograda4,
       categoryKey: "design",
-      alt: t("Garden fence style", "Stil vrtne ograde"),
+      alt: t("Garden fence style", "Detalj ograde"),
       description: t("Elegant fence style", "Elegantni stil ograde"),
     },
   ];
